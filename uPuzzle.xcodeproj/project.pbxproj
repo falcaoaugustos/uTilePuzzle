@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */; };
+		B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* ViewController.swift */; };
+		B5DB12FA1E4CA48200B7FEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12F81E4CA48200B7FEFE /* Main.storyboard */; };
+		B5DB12FC1E4CA48200B7FEFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12FB1E4CA48200B7FEFE /* Assets.xcassets */; };
+		B5DB130A1E4CA52100B7FEFE /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB13091E4CA52100B7FEFE /* TVServices.framework */; };
+		B5DB130D1E4CA52100B7FEFE /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB130C1E4CA52100B7FEFE /* ServiceProvider.swift */; };
+		B5DB13111E4CA52100B7FEFE /* uPuzzleTopShelf.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5DB13071E4CA52100B7FEFE /* uPuzzleTopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5DB130F1E4CA52100B7FEFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5DB12E91E4CA48200B7FEFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5DB13061E4CA52100B7FEFE;
+			remoteInfo = uPuzzleTopShelf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5DB13151E4CA52100B7FEFE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5DB13111E4CA52100B7FEFE /* uPuzzleTopShelf.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B5DB12F11E4CA48200B7FEFE /* uPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B5DB12F61E4CA48200B7FEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5DB12F91E4CA48200B7FEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5DB12FB1E4CA48200B7FEFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5DB12FD1E4CA48200B7FEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5DB13071E4CA52100B7FEFE /* uPuzzleTopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = uPuzzleTopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DB13091E4CA52100B7FEFE /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		B5DB130C1E4CA52100B7FEFE /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		B5DB130E1E4CA52100B7FEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5DB12EE1E4CA48200B7FEFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5DB13041E4CA52100B7FEFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DB130A1E4CA52100B7FEFE /* TVServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B5DB12E81E4CA48200B7FEFE = {
+			isa = PBXGroup;
+			children = (
+				B5DB12F31E4CA48200B7FEFE /* uPuzzle */,
+				B5DB130B1E4CA52100B7FEFE /* uPuzzleTopShelf */,
+				B5DB13081E4CA52100B7FEFE /* Frameworks */,
+				B5DB12F21E4CA48200B7FEFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5DB12F21E4CA48200B7FEFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB12F11E4CA48200B7FEFE /* uPuzzle.app */,
+				B5DB13071E4CA52100B7FEFE /* uPuzzleTopShelf.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5DB12F31E4CA48200B7FEFE /* uPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */,
+				B5DB12F61E4CA48200B7FEFE /* ViewController.swift */,
+				B5DB12F81E4CA48200B7FEFE /* Main.storyboard */,
+				B5DB12FB1E4CA48200B7FEFE /* Assets.xcassets */,
+				B5DB12FD1E4CA48200B7FEFE /* Info.plist */,
+			);
+			path = uPuzzle;
+			sourceTree = "<group>";
+		};
+		B5DB13081E4CA52100B7FEFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB13091E4CA52100B7FEFE /* TVServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5DB130B1E4CA52100B7FEFE /* uPuzzleTopShelf */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB130C1E4CA52100B7FEFE /* ServiceProvider.swift */,
+				B5DB130E1E4CA52100B7FEFE /* Info.plist */,
+			);
+			path = uPuzzleTopShelf;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5DB12F01E4CA48200B7FEFE /* uPuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5DB13001E4CA48200B7FEFE /* Build configuration list for PBXNativeTarget "uPuzzle" */;
+			buildPhases = (
+				B5DB12ED1E4CA48200B7FEFE /* Sources */,
+				B5DB12EE1E4CA48200B7FEFE /* Frameworks */,
+				B5DB12EF1E4CA48200B7FEFE /* Resources */,
+				B5DB13151E4CA52100B7FEFE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5DB13101E4CA52100B7FEFE /* PBXTargetDependency */,
+			);
+			name = uPuzzle;
+			productName = uPuzzle;
+			productReference = B5DB12F11E4CA48200B7FEFE /* uPuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B5DB13061E4CA52100B7FEFE /* uPuzzleTopShelf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5DB13121E4CA52100B7FEFE /* Build configuration list for PBXNativeTarget "uPuzzleTopShelf" */;
+			buildPhases = (
+				B5DB13031E4CA52100B7FEFE /* Sources */,
+				B5DB13041E4CA52100B7FEFE /* Frameworks */,
+				B5DB13051E4CA52100B7FEFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = uPuzzleTopShelf;
+			productName = uPuzzleTopShelf;
+			productReference = B5DB13071E4CA52100B7FEFE /* uPuzzleTopShelf.appex */;
+			productType = "com.apple.product-type.tv-app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5DB12E91E4CA48200B7FEFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Augusto Falcão";
+				TargetAttributes = {
+					B5DB12F01E4CA48200B7FEFE = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					B5DB13061E4CA52100B7FEFE = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B5DB12EC1E4CA48200B7FEFE /* Build configuration list for PBXProject "uPuzzle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B5DB12E81E4CA48200B7FEFE;
+			productRefGroup = B5DB12F21E4CA48200B7FEFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5DB12F01E4CA48200B7FEFE /* uPuzzle */,
+				B5DB13061E4CA52100B7FEFE /* uPuzzleTopShelf */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5DB12EF1E4CA48200B7FEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DB12FC1E4CA48200B7FEFE /* Assets.xcassets in Resources */,
+				B5DB12FA1E4CA48200B7FEFE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5DB13051E4CA52100B7FEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5DB12ED1E4CA48200B7FEFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */,
+				B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5DB13031E4CA52100B7FEFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DB130D1E4CA52100B7FEFE /* ServiceProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5DB13101E4CA52100B7FEFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5DB13061E4CA52100B7FEFE /* uPuzzleTopShelf */;
+			targetProxy = B5DB130F1E4CA52100B7FEFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B5DB12F81E4CA48200B7FEFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5DB12F91E4CA48200B7FEFE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B5DB12FE1E4CA48200B7FEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		B5DB12FF1E4CA48200B7FEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5DB13011E4CA48200B7FEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = uPuzzle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B5DB13021E4CA48200B7FEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = uPuzzle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B5DB13131E4CA52100B7FEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = uPuzzleTopShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle.uPuzzleTopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B5DB13141E4CA52100B7FEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = uPuzzleTopShelf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle.uPuzzleTopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5DB12EC1E4CA48200B7FEFE /* Build configuration list for PBXProject "uPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DB12FE1E4CA48200B7FEFE /* Debug */,
+				B5DB12FF1E4CA48200B7FEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5DB13001E4CA48200B7FEFE /* Build configuration list for PBXNativeTarget "uPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DB13011E4CA48200B7FEFE /* Debug */,
+				B5DB13021E4CA48200B7FEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B5DB13121E4CA52100B7FEFE /* Build configuration list for PBXNativeTarget "uPuzzleTopShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5DB13131E4CA52100B7FEFE /* Debug */,
+				B5DB13141E4CA52100B7FEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5DB12E91E4CA48200B7FEFE /* Project object */;
+}

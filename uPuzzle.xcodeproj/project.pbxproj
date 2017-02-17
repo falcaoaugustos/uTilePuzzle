@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511101E573A4D00A20AB4 /* IXNTileBoard.m */; };
+		B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */; };
+		B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */; };
+		B595111A1E573A4D00A20AB4 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511161E573A4D00A20AB4 /* UIImage+Resize.m */; };
+		B595111F1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */; };
+		B59511201E573ACD00A20AB4 /* UIViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */; };
 		B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */; };
 		B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* ViewController.swift */; };
 		B5DB12FA1E4CA48200B7FEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12F81E4CA48200B7FEFE /* Main.storyboard */; };
@@ -41,6 +47,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B595110E1E573A4C00A20AB4 /* uPuzzle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uPuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
+		B595110F1E573A4D00A20AB4 /* IXNTileBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTileBoard.h; sourceTree = "<group>"; };
+		B59511101E573A4D00A20AB4 /* IXNTileBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IXNTileBoard.m; sourceTree = "<group>"; };
+		B59511111E573A4D00A20AB4 /* IXNTileBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTileBoardView.h; sourceTree = "<group>"; };
+		B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IXNTileBoardView.m; sourceTree = "<group>"; };
+		B59511131E573A4D00A20AB4 /* IXNTilePuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTilePuzzle.h; sourceTree = "<group>"; };
+		B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleManagerObject.swift; sourceTree = "<group>"; };
+		B59511151E573A4D00A20AB4 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		B59511161E573A4D00A20AB4 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		B595111B1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewFocusEnviroment.h; sourceTree = "<group>"; };
+		B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageViewFocusEnviroment.m; sourceTree = "<group>"; };
+		B595111D1E573ACD00A20AB4 /* UIViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewFocusEnviroment.h; sourceTree = "<group>"; };
+		B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewFocusEnviroment.m; sourceTree = "<group>"; };
 		B5DB12F11E4CA48200B7FEFE /* uPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5DB12F61E4CA48200B7FEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +91,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59511211E573AD300A20AB4 /* IXNTilePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				B595110E1E573A4C00A20AB4 /* uPuzzle-Bridging-Header.h */,
+				B595110F1E573A4D00A20AB4 /* IXNTileBoard.h */,
+				B59511101E573A4D00A20AB4 /* IXNTileBoard.m */,
+				B59511111E573A4D00A20AB4 /* IXNTileBoardView.h */,
+				B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */,
+				B59511131E573A4D00A20AB4 /* IXNTilePuzzle.h */,
+				B595111B1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.h */,
+				B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */,
+				B595111D1E573ACD00A20AB4 /* UIViewFocusEnviroment.h */,
+				B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */,
+				B59511151E573A4D00A20AB4 /* UIImage+Resize.h */,
+				B59511161E573A4D00A20AB4 /* UIImage+Resize.m */,
+			);
+			name = IXNTilePuzzle;
+			sourceTree = "<group>";
+		};
 		B5DB12E81E4CA48200B7FEFE = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +132,11 @@
 		B5DB12F31E4CA48200B7FEFE /* uPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				B59511211E573AD300A20AB4 /* IXNTilePuzzle */,
 				B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */,
 				B5DB12F61E4CA48200B7FEFE /* ViewController.swift */,
 				B5DB12F81E4CA48200B7FEFE /* Main.storyboard */,
+				B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */,
 				B5DB12FB1E4CA48200B7FEFE /* Assets.xcassets */,
 				B5DB12FD1E4CA48200B7FEFE /* Info.plist */,
 			);
@@ -171,6 +211,7 @@
 				TargetAttributes = {
 					B5DB12F01E4CA48200B7FEFE = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					B5DB13061E4CA52100B7FEFE = {
@@ -223,7 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */,
+				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,
+				B59511201E573ACD00A20AB4 /* UIViewFocusEnviroment.m in Sources */,
+				B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */,
+				B595111F1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m in Sources */,
 				B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */,
+				B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */,
+				B595111A1E573A4D00A20AB4 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,10 +401,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uPuzzle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uPuzzle/uPuzzle-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -368,10 +418,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uPuzzle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uPuzzle/uPuzzle-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -381,6 +433,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = uPuzzleTopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle.uPuzzleTopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -393,6 +446,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = uPuzzleTopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepid.handson.uPuzzle.uPuzzleTopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -419,6 +473,7 @@
 				B5DB13021E4CA48200B7FEFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5DB13121E4CA52100B7FEFE /* Build configuration list for PBXNativeTarget "uPuzzleTopShelf" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +482,7 @@
 				B5DB13141E4CA52100B7FEFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

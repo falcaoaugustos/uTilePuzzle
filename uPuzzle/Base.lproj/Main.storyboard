@@ -180,6 +180,7 @@
                     <connections>
                         <outlet property="gameView2" destination="Gwl-hG-6tO" id="CiW-wd-eKe"/>
                         <outlet property="stepsLbl" destination="Ze3-9i-c2j" id="lPc-CG-jsB"/>
+                        <outlet property="timerLabel" destination="oa9-dO-V67" id="Eco-jI-6yC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

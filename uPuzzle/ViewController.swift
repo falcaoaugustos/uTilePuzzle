@@ -9,7 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, PuzzleManagerProtocol {
+   
+    // counter
+    @IBOutlet weak var timerLabel: UILabel!
     
+    var timer = Timer()
+    var counter = 0
+   //-------------------------------------------
     @IBOutlet weak var gameView2: IXNTileBoardView!
         
     @IBOutlet weak var stepsLbl: UILabel!
@@ -22,6 +28,14 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         //self.gameView.tou
         self.manager.delegate = self
         self.manager.startPuzzle()
+        
+        //ajustando timer
+        let (h,m,s) = formatTimer(seconds: self.counter)
+        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
+        //--------------
+        //iniciando timer
+        self.startTimer()
+        //-------------
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,6 +45,38 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     
     @IBAction func restartPuzzle(_ sender: Any) {
         self.manager.startPuzzle()
+        
+        //zera o timer
+        self.stopTimer()
+        //inicia o timer novamente
+        self.startTimer()
+        //-------------------------
+        
+    }
+    
+    // pragma mark - Timer functions
+    
+    //essa função é cahmada quando o timer gera um evento
+    
+    
+    func updateCounter() {
+        self.counter = self.counter+1
+        let (h,m,s) = formatTimer(seconds: self.counter)
+        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
+    }
+    //formata a label em hh:mm:ss
+    func formatTimer(seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    func startTimer(){
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(ViewController.updateCounter), userInfo: nil, repeats: true)
+    }
+    func stopTimer(){
+        self.timer.invalidate()
+        self.counter = 0
+        let (h,m,s) = formatTimer(seconds: self.counter)
+        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
     }
     
     // pragma mark - Puzzle Manager Delegate Method
@@ -39,5 +85,6 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         stepsLbl.text = "\(manager.steps)"
     }
 
+    
 }
 

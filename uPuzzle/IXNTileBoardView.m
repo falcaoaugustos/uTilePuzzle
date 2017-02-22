@@ -28,6 +28,8 @@ typedef enum {
 @property (strong, nonatomic) UIImageViewFocusEnviroment *draggedTile;
 @property (nonatomic) NSInteger draggedDirection;
 
+@property (strong, nonatomic) UIImageViewFocusEnviroment *tappedTile;
+
 @end
 
 @implementation IXNTileBoardView
@@ -74,8 +76,6 @@ typedef enum {
 {
     NSMutableArray *slices = [NSMutableArray array];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMove:)];
-    [tapGesture setNumberOfTapsRequired:1];
     
     for (int i = 0; i < self.board.size; i++)
     {
@@ -85,7 +85,11 @@ typedef enum {
             
             CGRect f = CGRectMake(self.tileWidth * j, self.tileHeight * i, self.tileWidth, self.tileHeight);
             UIImageViewFocusEnviroment *tileImageView = [self tileImageViewWithImage:image frame:f];
-            //[tileImageView addGestureRecognizer:tapGesture];
+            
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMove:)];
+            [tapGesture setNumberOfTapsRequired:1];
+            //[tapGesture setDelegate: tileImageView];
+            [tileImageView addGestureRecognizer:tapGesture];
             
             [slices addObject:tileImageView];
         }
@@ -108,6 +112,7 @@ typedef enum {
     [tileImageView setUserInteractionEnabled: YES];
     [tileImageView setHighlighted: YES];
     [tileImageView setAdjustsImageWhenAncestorFocused: YES];
+    //[tileImageView setBackgroundColor: [UIColor blackColor]];
     
     return tileImageView;
 }
@@ -123,7 +128,8 @@ typedef enum {
     // add tapping recognizer
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMove:)];
     [tapGesture setNumberOfTapsRequired:1];
-    [self addGestureRecognizer:tapGesture];
+    //[tapGesture setDelegate: self];
+    //[self addGestureRecognizer:tapGesture];
 }
 
 #pragma mark - Public Methods for playing puzzle
@@ -171,15 +177,20 @@ typedef enum {
 
 - (void)moveTileAtPosition:(CGPoint)position
 {
-    NSLog(@"move?");
+    
     __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:position];
-    NSLog(@"%@", tileView);
-    NSLog([self.board canMoveTile: position] ? @"YES" : @"NO");
-    if (![self.board canMoveTile:position] || !tileView) return;
+    
+    CGPoint coor = [self coordinateFromPoint:position];
+    NSLog([self.board canMoveTile: coor] ? @"YES" : @"NO");
+    NSLog(@"%ld, tile na coord", [[self.board tileAtCoordinate:CGPointMake(coor.x, coor.y)] integerValue]);
+    
+    self.tappedTile = [self tileViewAtPosition: position];
+    
+    if (![self.board canMoveTile: coor] || !tileView) return;
     
     NSLog(@"moveMesmo?");
     
-    CGPoint p = [self.board shouldMove:YES tileAtCoordinate:position];
+    CGPoint p = [self.board shouldMove:YES tileAtCoordinate:coor];
     CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
     [UIView animateWithDuration:.1 animations:^{
         tileView.frame = newFrame;
@@ -193,12 +204,14 @@ typedef enum {
 - (UIImageViewFocusEnviroment *)tileViewAtPosition:(CGPoint)position
 {
     UIImageViewFocusEnviroment *tileView;
-    //CGRect checkRect = CGRectMake((position.x - 1) * self.tileWidth + 1, (position.y - 1) * self.tileHeight + 1, 1.0, 1.0);
+    CGRect checkRect = CGRectMake((position.x - 1) * self.tileWidth + 1, (position.y - 1) * self.tileHeight + 1, 1.0, 1.0);
     NSLog(@"%.0f %.0f", position.x, position.y);
-    CGRect checkRect = CGRectMake(position.x, position.y, 1.0, 1.0);
+    //CGRect checkRect = CGRectMake(position.x, position.y, 1.0, 1.0);
     for (UIImageViewFocusEnviroment *enumTile in self.tiles)
     {
-        if  (CGRectIntersectsRect(enumTile.frame, checkRect))
+        if (CGRectContainsPoint(enumTile.frame, position))
+            //CGRect
+        // if  (CGRectIntersectsRect(enumTile.frame, checkRect))
         {
             NSLog(@"achou");
             tileView = enumTile;
@@ -244,7 +257,7 @@ typedef enum {
         }
         case UIGestureRecognizerStateEnded: {
             if (!self.draggedTile) break;
-            
+
             [self snapDraggedTile];
             
             break;
@@ -278,6 +291,8 @@ typedef enum {
     {
         if (CGRectContainsPoint(tile.frame, position))
         {
+            NSLog(@"Agora o Matheus esta vendo!");
+            NSLog(@"%.0f %.0f, Lololo", position.x, position.y);
             self.draggedTile = tile;
             break;
         }
@@ -388,8 +403,21 @@ typedef enum {
 {
     NSLog(@"boraver");
     CGPoint tapPoint = [tapRecognizer locationInView:self];
+    //CGPoint myTap = [tapRecognizer locationOfTouch: 0 inView:self];
     NSLog(@"%.0f %.0f", tapPoint.x, tapPoint.y);
-    [self moveTileAtPosition:[self coordinateFromPoint:tapPoint]];
+    //NSLog(@"--- %.0f %.0f", myTap.x, myTap.y);
+    //[self moveTileAtPosition:[self coordinateFromPoint:tapPoint]];
+    [self moveTileAtPosition: tapPoint];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    NSLog(@"alguma coisa diferente");
+    UITouch *tapTouch = [touches anyObject];
+    CGPoint touchPoint = [tapTouch locationInView: self];
+    NSLog(@"%.0f %.0f", touchPoint.x, touchPoint.y);
+    [self moveTileAtPosition:touchPoint];
 }
 
 @end

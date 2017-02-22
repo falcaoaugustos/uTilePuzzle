@@ -19,12 +19,12 @@
 - (UIMotionEffectGroup *)motionEffectGroup {
     
     UIInterpolatingMotionEffect *horizonMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    horizonMotionEffect.minimumRelativeValue = @-8.0;
-    horizonMotionEffect.maximumRelativeValue = @8.0;
+    horizonMotionEffect.minimumRelativeValue = @-1.0;
+    horizonMotionEffect.maximumRelativeValue = @1.0;
     
     UIInterpolatingMotionEffect *verticalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-    [verticalMotionEffect setMinimumRelativeValue: @-8.0];
-    [verticalMotionEffect setMaximumRelativeValue: @8.0];
+    [verticalMotionEffect setMinimumRelativeValue: @-1.0];
+    [verticalMotionEffect setMaximumRelativeValue: @1.0];
     
     UIMotionEffectGroup *motionEffectGroup = [[UIMotionEffectGroup alloc] init];
     [motionEffectGroup setMotionEffects: [[NSArray alloc] initWithObjects: horizonMotionEffect, verticalMotionEffect, nil]];
@@ -34,7 +34,7 @@
 - (void) didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimatorCoordinator:(UIFocusAnimationCoordinator *)coordinator {
     if (context.nextFocusedItem == self) {
         [coordinator addCoordinatedAnimations: ^{
-            self.transform = CGAffineTransformMakeScale(1.1, 1.1);
+            self.transform = CGAffineTransformMakeScale(1.01, 1.01);
             [self.layer setShadowOpacity: 0.2];
             [self.layer setShadowOffset: CGSizeMake(0, 15)];
             self.backgroundColor = [self.backgroundColor colorWithAlphaComponent: 1.0];

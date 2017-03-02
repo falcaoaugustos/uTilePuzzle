@@ -110,15 +110,11 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
     // pragma mark - Tile Board Delegate Method
     
     func tileBoardView(_ tileBoardView: IXNTileBoardView!, tileDidMove position: CGPoint) {
-        
-        print("tile Matheus move: \(position)")
-        
+                
         steps = steps + 1
     }
     
     func tileBoardViewDidFinished(_ tileBoardView: IXNTileBoardView!) {
-        
-        print("tile is completed")
         
         showImage()
         finishMessage()

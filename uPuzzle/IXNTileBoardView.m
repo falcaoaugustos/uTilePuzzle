@@ -14,8 +14,10 @@
 
 @property (nonatomic) CGFloat tileWidth;
 @property (nonatomic) CGFloat tileHeight;
+@property (nonatomic, getter = isGestureRecognized) BOOL gestureRecognized;
 @property (strong, nonatomic) IXNTileBoard *board;
 @property (strong, nonatomic) NSMutableArray *tiles;
+
 
 @property (strong, nonatomic) UIImageViewFocusEnviroment *draggedTile;
 @property (nonatomic) NSInteger draggedDirection;
@@ -59,6 +61,9 @@
     self.tileWidth = resizedImage.size.width / size;
     self.tileHeight = resizedImage.size.height / size;
     self.tiles = [self sliceImageToAnArray:resizedImage];
+    
+    // recognize gestures
+    if (!self.isGestureRecognized) [self addGestures];
 }
 
 - (NSMutableArray *)sliceImageToAnArray:(UIImage *)image
@@ -100,6 +105,28 @@
     
     return tileImageView;
 }
+
+- (void)addGestures
+{
+    
+    
+    UISwipeGestureRecognizer *swipeGestureUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    swipeGestureUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self addGestureRecognizer: swipeGestureUp];
+    
+    UISwipeGestureRecognizer *swipeGestureDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    swipeGestureDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self addGestureRecognizer: swipeGestureDown];
+    
+    UISwipeGestureRecognizer *swipeGestureLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    swipeGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self addGestureRecognizer: swipeGestureLeft];
+    
+    UISwipeGestureRecognizer *swipeGestureRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    swipeGestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self addGestureRecognizer: swipeGestureRight];
+}
+
 
 #pragma mark - Public Methods for playing puzzle
 
@@ -231,6 +258,58 @@
         self.zeroCoordinate = targetTile;
     }
 
+}
+
+- (void) swipeHandler:(UISwipeGestureRecognizer *)swipeRecognizer {
+    
+    NSLog(@"oleoleole");
+    
+    CGPoint targetPoint = [self mappingSwipeTileFromSwipeDirection:swipeRecognizer.direction];
+    
+    if (targetPoint.x > 3.5 || targetPoint.x < 1 || targetPoint.y > 3.5 || targetPoint.y < 1)
+        return;
+    
+    if (![self.board canMoveTile: targetPoint]) return;
+    
+    CGPoint p = [self.board shouldMove:YES tileAtCoordinate:targetPoint];
+    
+    CGPoint tilePosition = CGPointMake(self.tileWidth * (targetPoint.x - 1), self.tileHeight * (targetPoint.y - 1));
+    
+    __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:tilePosition];
+    
+    CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
+    [UIView animateWithDuration:.1 animations:^{
+        tileView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        if (self.delegate) [self.delegate tileBoardView:self tileDidMove:tilePosition];
+        [self tileWasMoved];
+    }];
+    self.zeroCoordinate = targetPoint;
+    
+}
+
+- (CGPoint) mappingSwipeTileFromSwipeDirection:(UISwipeGestureRecognizerDirection)direction {
+    
+    CGPoint swipeTargetTile = self.zeroCoordinate;
+    
+    switch (direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            swipeTargetTile.y = self.zeroCoordinate.y + 1;
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            swipeTargetTile.y = self.zeroCoordinate.y - 1;
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+            swipeTargetTile.x = self.zeroCoordinate.x + 1;
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            swipeTargetTile.x = self.zeroCoordinate.x - 1;
+            break;
+        default:
+            break;
+    }
+    
+    return swipeTargetTile;
 }
 
 @end

@@ -29,6 +29,8 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         self.manager.delegate = self
         self.manager.startPuzzle()
         
+        self.addGestures()
+        
         //ajustando timer
         let (h,m,s) = formatTimer(seconds: self.counter)
         self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
@@ -41,6 +43,19 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addGestures() {
+        
+        let tapRestart = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapRestartHandler(_:)))
+        tapRestart.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
+        self.view.addGestureRecognizer(tapRestart)
+    }
+    
+    func tapRestartHandler(_ gestureRecognizer: UITapGestureRecognizer) {
+        self.manager.startPuzzle()
+        self.stopTimer()
+        self.startTimer()
     }
     
     @IBAction func restartPuzzle(_ sender: Any) {

@@ -28,7 +28,7 @@ typedef enum {
 @property (strong, nonatomic) UIImageViewFocusEnviroment *draggedTile;
 @property (nonatomic) NSInteger draggedDirection;
 
-@property (strong, nonatomic) UIImageViewFocusEnviroment *tappedTile;
+@property (nonatomic) CGPoint zeroCoordinate;
 
 @end
 
@@ -76,7 +76,6 @@ typedef enum {
 {
     NSMutableArray *slices = [NSMutableArray array];
     
-    
     for (int i = 0; i < self.board.size; i++)
     {
         for (int j = 0; j < self.board.size; j++)
@@ -86,12 +85,10 @@ typedef enum {
             CGRect f = CGRectMake(self.tileWidth * j, self.tileHeight * i, self.tileWidth, self.tileHeight);
             UIImageViewFocusEnviroment *tileImageView = [self tileImageViewWithImage:image frame:f];
             
-            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMove:)];
-            [tapGesture setNumberOfTapsRequired:1];
-            //[tapGesture setDelegate: tileImageView];
-            [tileImageView addGestureRecognizer:tapGesture];
-            
             [slices addObject:tileImageView];
+            
+            CGPoint pieceCoord = [self coordinateFromPoint: f.origin];
+            if ([[self.board tileAtCoordinate:pieceCoord] isEqualToNumber:@0]) self.zeroCoordinate = pieceCoord;
         }
     }
     
@@ -111,7 +108,7 @@ typedef enum {
     
     [tileImageView setUserInteractionEnabled: YES];
     [tileImageView setHighlighted: YES];
-    [tileImageView setAdjustsImageWhenAncestorFocused: YES];
+    //[tileImageView setAdjustsImageWhenAncestorFocused: YES];
     //[tileImageView setBackgroundColor: [UIColor blackColor]];
     
     return tileImageView;
@@ -120,16 +117,25 @@ typedef enum {
 - (void)addGestures
 {
     // add panning recognizer
-    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
-    //[dragGesture setMaximumNumberOfTouches:1];
-    //[dragGesture setMinimumNumberOfTouches:1];
-    [self addGestureRecognizer:dragGesture];
+    //UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragging:)];
+    //[self addGestureRecognizer:dragGesture];
     
     // add tapping recognizer
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMove:)];
     [tapGesture setNumberOfTapsRequired:1];
-    //[tapGesture setDelegate: self];
+    
+    tapGesture.allowedPressTypes = @[
+                                     [NSNumber numberWithInteger:UIPressTypeUpArrow],
+                                     [NSNumber numberWithInteger:UIPressTypeDownArrow],
+                                     [NSNumber numberWithInteger:UIPressTypeRightArrow],
+                                     [NSNumber numberWithInteger:UIPressTypeLeftArrow]
+                                    ];
+
     //[self addGestureRecognizer:tapGesture];
+    
+    // add swipe recognizer
+    //UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    //[self addGestureRecognizer: swipeGesture];
 }
 
 #pragma mark - Public Methods for playing puzzle
@@ -165,7 +171,10 @@ typedef enum {
         for (int i = 1; i <= self.board.size; i++) {
             NSNumber *value = [self.board tileAtCoordinate:CGPointMake(i, j)];
             
-            if ([value intValue] == 0) continue;
+            if ([value intValue] == 0){
+                self.zeroCoordinate = CGPointMake(i, j);
+                continue;
+            }
             
             UIImageViewFocusEnviroment *tileImageView = [self.tiles objectAtIndex:[value intValue]-1];
             block(tileImageView, i, j);
@@ -177,18 +186,13 @@ typedef enum {
 
 - (void)moveTileAtPosition:(CGPoint)position
 {
-    
     __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:position];
     
     CGPoint coor = [self coordinateFromPoint:position];
-    NSLog([self.board canMoveTile: coor] ? @"YES" : @"NO");
-    NSLog(@"%ld, tile na coord", [[self.board tileAtCoordinate:CGPointMake(coor.x, coor.y)] integerValue]);
     
-    self.tappedTile = [self tileViewAtPosition: position];
+    NSLog(@"%.2f %.2f coordenada", coor.x, coor.y);
     
     if (![self.board canMoveTile: coor] || !tileView) return;
-    
-    NSLog(@"moveMesmo?");
     
     CGPoint p = [self.board shouldMove:YES tileAtCoordinate:coor];
     CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
@@ -204,16 +208,11 @@ typedef enum {
 - (UIImageViewFocusEnviroment *)tileViewAtPosition:(CGPoint)position
 {
     UIImageViewFocusEnviroment *tileView;
-    CGRect checkRect = CGRectMake((position.x - 1) * self.tileWidth + 1, (position.y - 1) * self.tileHeight + 1, 1.0, 1.0);
-    NSLog(@"%.0f %.0f", position.x, position.y);
-    //CGRect checkRect = CGRectMake(position.x, position.y, 1.0, 1.0);
+    
     for (UIImageViewFocusEnviroment *enumTile in self.tiles)
     {
         if (CGRectContainsPoint(enumTile.frame, position))
-            //CGRect
-        // if  (CGRectIntersectsRect(enumTile.frame, checkRect))
         {
-            NSLog(@"achou");
             tileView = enumTile;
             break;
         }
@@ -249,17 +248,13 @@ typedef enum {
         }
         case UIGestureRecognizerStateChanged: {
             if (!self.draggedTile) break;
-            
             CGPoint translation = [gestureRecognizer translationInView:self];
             [self movingDraggedTile:translation];
-            
             break;
         }
         case UIGestureRecognizerStateEnded: {
             if (!self.draggedTile) break;
-
             [self snapDraggedTile];
-            
             break;
         }
         default:
@@ -291,8 +286,6 @@ typedef enum {
     {
         if (CGRectContainsPoint(tile.frame, position))
         {
-            NSLog(@"Agora o Matheus esta vendo!");
-            NSLog(@"%.0f %.0f, Lololo", position.x, position.y);
             self.draggedTile = tile;
             break;
         }
@@ -401,23 +394,154 @@ typedef enum {
 
 - (void)tapMove:(UITapGestureRecognizer *)tapRecognizer
 {
-    NSLog(@"boraver");
     CGPoint tapPoint = [tapRecognizer locationInView:self];
-    //CGPoint myTap = [tapRecognizer locationOfTouch: 0 inView:self];
-    NSLog(@"%.0f %.0f", tapPoint.x, tapPoint.y);
-    //NSLog(@"--- %.0f %.0f", myTap.x, myTap.y);
-    //[self moveTileAtPosition:[self coordinateFromPoint:tapPoint]];
-    [self moveTileAtPosition: tapPoint];
+    [self moveTileAtPosition: tapPoint]; // Another implementation with point coordinates
+    
+    NSLog(@"caraca doido mesmo");
+    
+    CGPoint targetPoint = [self mappingTapTileFromDirection: tapRecognizer];
+    
+    if (![self.board canMoveTile: targetPoint]) return;
+    
+    CGPoint p = [self.board shouldMove:YES tileAtCoordinate:targetPoint];
+    
+    CGPoint tilePosition = CGPointMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1));
+    
+    __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:tilePosition];
+    
+    CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
+    [UIView animateWithDuration:.1 animations:^{
+        tileView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        if (self.delegate) [self.delegate tileBoardView:self tileDidMove:tilePosition];
+        [self tileWasMoved];
+        self.zeroCoordinate = targetPoint;
+    }];
+    
+    NSLog(@"%.0f %.0f swipe novo zero coordenada", self.zeroCoordinate.x, self.zeroCoordinate.y);
+}
+
+- (CGPoint) mappingTapTileFromDirection:(UIPress *)press {
+    
+    CGPoint pressedTargetTile = self.zeroCoordinate;
+    
+    switch (press.type) {
+        case 0: // UIPressTypeUpArrow:
+            pressedTargetTile.y = self.zeroCoordinate.y + 1;
+            break;
+        case 1: //UIPressTypeDownArrow:
+            pressedTargetTile.y = self.zeroCoordinate.y - 1;
+            break;
+        case 2: //UIPressTypeLeftArrow:
+            pressedTargetTile.x = self.zeroCoordinate.x + 1;
+            break;
+        case 3: //UIPressTypeRightArrow:
+            pressedTargetTile.x = self.zeroCoordinate.x - 1;
+            break;
+        default:
+            break;
+    }
+    
+    return pressedTargetTile;
+}
+
+- (void)pressesBegan:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event
+{
+    for (UIPress *press in presses)
+    {
+        //CGPoint pressPoint = press.window.frame.origin;
+        //[self moveTileAtPosition: pressPoint]; // Another implementation with point coordinates
+        
+        NSLog(@"type: %ld // x: %.0f - y: %.0f", press.type, self.zeroCoordinate.x, self.zeroCoordinate.y);
+        
+        CGPoint targetTile = [self mappingTapTileFromDirection: press];
+        
+        NSLog(@"destiny x: %.2f | y: %.2f", targetTile.x, targetTile.y);
+
+        if (targetTile.x > 3.5 || targetTile.y > 3.5 || targetTile.x < 1 || targetTile.y < 1)
+            continue; //targetTile = self.zeroCoordinate;
+        
+        if (![self.board canMoveTile: targetTile]) return;
+        
+        CGPoint p = [self.board shouldMove:YES tileAtCoordinate:targetTile];
+        
+        CGPoint tilePosition = CGPointMake(self.tileWidth * (targetTile.x - 1), self.tileHeight * (targetTile.y - 1));
+        
+        __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:tilePosition];
+        
+        CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
+        [UIView animateWithDuration:.1 animations:^{
+            tileView.frame = newFrame;
+        } completion:^(BOOL finished) {
+            if (self.delegate) [self.delegate tileBoardView:self tileDidMove:tilePosition];
+            [self tileWasMoved];
+            NSLog(@"x: %.0f - y: %.0f - novo zero\n\n", self.zeroCoordinate.x, self.zeroCoordinate.y);
+        }];
+        
+        self.zeroCoordinate = targetTile;
+    }
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-    NSLog(@"alguma coisa diferente");
     UITouch *tapTouch = [touches anyObject];
     CGPoint touchPoint = [tapTouch locationInView: self];
-    NSLog(@"%.0f %.0f", touchPoint.x, touchPoint.y);
-    [self moveTileAtPosition:touchPoint];
+    //[self moveTileAtPosition:touchPoint];
 }
+
+- (void) swipeHandler:(UISwipeGestureRecognizer *)swipeRecognizer {
+    
+    NSLog(@"caraca doido");
+    
+    CGPoint targetPoint = [self mappingSwipeTileFromSwipeDirection:swipeRecognizer.direction];
+    
+    if (![self.board canMoveTile: targetPoint]) return;
+    
+    CGPoint p = [self.board shouldMove:YES tileAtCoordinate:targetPoint];
+    
+    CGPoint tilePosition = CGPointMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1));
+    
+    __block UIImageViewFocusEnviroment *tileView = [self tileViewAtPosition:tilePosition];
+    
+    CGRect newFrame = CGRectMake(self.tileWidth * (p.x - 1), self.tileHeight * (p.y - 1), self.tileWidth, self.tileHeight);
+    [UIView animateWithDuration:.1 animations:^{
+        tileView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        if (self.delegate) [self.delegate tileBoardView:self tileDidMove:tilePosition];
+        [self tileWasMoved];
+        self.zeroCoordinate = targetPoint;
+    }];
+    
+    NSLog(@"%.0f %.0f swipe novo zero coordenada", self.zeroCoordinate.x, self.zeroCoordinate.y);
+}
+
+- (CGPoint) mappingSwipeTileFromSwipeDirection:(UISwipeGestureRecognizerDirection)direction {
+    
+    CGPoint swipeTargetTile = self.zeroCoordinate;
+    
+    switch (direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            swipeTargetTile.y = self.zeroCoordinate.y + 1;
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            swipeTargetTile.y = self.zeroCoordinate.y - 1;
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+            swipeTargetTile.x = self.zeroCoordinate.x + 1;
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            swipeTargetTile.x = self.zeroCoordinate.x - 1;
+            break;
+        default:
+            break;
+    }
+    
+    return swipeTargetTile;
+}
+
+
+
 
 @end

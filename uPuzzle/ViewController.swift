@@ -15,12 +15,21 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     
     var timer = Timer()
     var counter = 0
+    
+    //images
+    @IBOutlet weak var clueImage: UIImageView!
+    @IBOutlet weak var puzzleName: UILabel!
+    
+
    //-------------------------------------------
+    var imageName: String? = "pug"
+    var image: UIImage? = UIImage(named: "pug")
+    
     @IBOutlet weak var gameView2: IXNTileBoardView!
         
     @IBOutlet weak var stepsLbl: UILabel!
     
-    lazy var manager: PuzzleManagerObject = { PuzzleManagerObject(parent: self, tileBoardView: self.gameView2) }()
+    lazy var manager: PuzzleManagerObject = { PuzzleManagerObject(parent: self, tileBoardView: self.gameView2, image:self.image!) }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +37,9 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         //self.gameView.tou
         self.manager.delegate = self
         self.manager.startPuzzle()
+        
+        self.clueImage.image = self.image
+        self.puzzleName.text = self.imageName
         
         self.addGestures()
         

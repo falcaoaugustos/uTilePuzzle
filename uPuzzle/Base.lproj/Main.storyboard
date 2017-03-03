@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eip-0L-aCg">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eip-0L-aCg">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,14 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="oOW-2W-Msq">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selection menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwO-fs-0xp">
-                                <rect key="frame" x="954" y="190" width="464" height="78"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwO-fs-0xp">
+                                <rect key="frame" x="954" y="190" width="700" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="skF-CZ-9Yq"/>
-                                    <constraint firstAttribute="width" constant="464" id="w6T-Q9-gGG"/>
+                                    <constraint firstAttribute="width" constant="700" id="w6T-Q9-gGG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.2470588235" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,16 +68,12 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="oOW-2W-Msq" firstAttribute="top" secondItem="e7V-Pe-ZNF" secondAttribute="bottom" id="3hZ-9Q-geV"/>
                             <constraint firstItem="6t4-dR-nF0" firstAttribute="top" secondItem="e7V-Pe-ZNF" secondAttribute="bottom" constant="190" id="Aub-37-It3"/>
-                            <constraint firstAttribute="trailing" secondItem="oOW-2W-Msq" secondAttribute="trailing" id="EL1-9c-hzf"/>
                             <constraint firstItem="BwO-fs-0xp" firstAttribute="top" secondItem="6t4-dR-nF0" secondAttribute="top" id="NA2-cQ-gy2"/>
                             <constraint firstItem="kIU-DJ-8Ah" firstAttribute="top" secondItem="BwO-fs-0xp" secondAttribute="bottom" constant="60" id="NGS-Ea-jgl"/>
                             <constraint firstItem="kIU-DJ-8Ah" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="80" id="Q9e-7Z-kdl"/>
                             <constraint firstItem="6t4-dR-nF0" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="154" id="Vz8-D4-sto"/>
                             <constraint firstItem="BwO-fs-0xp" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="80" id="fcb-5g-JDB"/>
-                            <constraint firstItem="oOW-2W-Msq" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leading" id="ppr-AJ-rl9"/>
-                            <constraint firstItem="5Je-RN-EhW" firstAttribute="top" secondItem="oOW-2W-Msq" secondAttribute="bottom" id="s5g-yg-Rsw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -286,7 +279,6 @@
     <resources>
         <image name="Menu" width="92" height="92"/>
         <image name="PlayPause" width="92" height="92"/>
-        <image name="back" width="1920" height="1080"/>
         <image name="pug" width="500" height="500"/>
     </resources>
 </document>

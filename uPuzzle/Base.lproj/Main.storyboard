@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -188,7 +188,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clueImage" destination="5SO-FR-6op" id="lLN-F3-Yud"/>
                         <outlet property="gameView2" destination="Gwl-hG-6tO" id="CiW-wd-eKe"/>
+                        <outlet property="puzzleName" destination="iKE-6p-mLw" id="98E-Nv-XnK"/>
                         <outlet property="stepsLbl" destination="Ze3-9i-c2j" id="lPc-CG-jsB"/>
                         <outlet property="timerLabel" destination="oa9-dO-V67" id="Eco-jI-6yC"/>
                     </connections>

@@ -18,10 +18,11 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
     
     var gameView: IXNTileBoardView!
     var clueView: UIImageView!
+    var boardImage: UIImage!
     
     var parentViewController: UIViewController!
     
-    let boardImage: UIImage! = UIImage(named: "pug.jpg")
+    //let boardImage: UIImage! = UIImage(named: "pug.jpg")
     let boardSize = 3
     
     let AnimationSpeed: TimeInterval! = 0.05
@@ -34,11 +35,12 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
         }
     }
     
-    init(parent: UIViewController, tileBoardView: IXNTileBoardView) {
+    init(parent: UIViewController, tileBoardView: IXNTileBoardView, image: UIImage) {
         super.init()
         parentViewController = parent
         gameView = tileBoardView
         gameView.delegate = self
+        boardImage = image
     }
     
     func startPuzzle() {

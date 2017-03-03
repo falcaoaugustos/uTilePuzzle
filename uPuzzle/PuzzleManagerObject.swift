@@ -10,6 +10,7 @@ import Foundation
 
 protocol PuzzleManagerProtocol {
     func changeSteps()
+    func timeFinishMessage() -> String
 }
 
 class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
@@ -20,22 +21,22 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
     var clueView: UIImageView!
     var boardImage: UIImage!
     
-    var parentViewController: UIViewController!
+    var parentViewController: ViewController!
     
     //let boardImage: UIImage! = UIImage(named: "pug.jpg")
     let boardSize = 3
     
     let AnimationSpeed: TimeInterval! = 0.05
     
-    var startTime: TimeInterval! = 0
     var currentTime: TimeInterval! = 0
+    
     var steps = 0 {
         didSet {
             self.delegate?.changeSteps()
         }
     }
     
-    init(parent: UIViewController, tileBoardView: IXNTileBoardView, image: UIImage) {
+    init(parent: ViewController, tileBoardView: IXNTileBoardView, image: UIImage) {
         super.init()
         parentViewController = parent
         gameView = tileBoardView
@@ -95,7 +96,9 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
     
     func finishMessage() {
         
-        let message = "You've completed a \(boardSize) x \(boardSize) puzzle with \(steps) steps. Press restart button to play again."
+        let timeMessage: String = (self.delegate?.timeFinishMessage())!
+        
+        let message = "You've completed a \(boardSize) x \(boardSize) puzzle with \(steps) steps and in \(timeMessage). Press restart button to play again."
         let alert = UIAlertController(title: "Congratulations!", message: message, preferredStyle: .actionSheet) // study best style
         
         alert.addAction(UIAlertAction(title: "Menu", style: .default, handler: { (handler) in
@@ -104,6 +107,8 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
         
         alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { (handler) in
             self.startPuzzle()
+            self.parentViewController.stopTimer()
+            self.parentViewController.startTimer()
         }))
         
         parentViewController.present(alert, animated: false, completion: nil)

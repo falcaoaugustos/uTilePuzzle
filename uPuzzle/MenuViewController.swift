@@ -15,7 +15,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     //@IBOutlet weak var titlePuzzle: UILabel!
     
     
-    var puzzles:[String] = ["pug","nature","carnival"]
+    var puzzles:[String] = ["Pug","Nature","Carnival"]
     var gameImageName: String?
     
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.puzzleImage.layer.borderColor = UIColor.white.cgColor
         self.puzzleImage.layer.borderWidth = 14.0
         
+        self.view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
         
         //self.puzzleImage.layer.shadowColor = UIColor.black.cgColor
         //self.puzzleImage.layer.shadowOpacity = 1

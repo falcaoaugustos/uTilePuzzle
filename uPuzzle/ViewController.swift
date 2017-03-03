@@ -35,6 +35,9 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //self.gameView.tou
+        
+        self.view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
+        
         self.manager.delegate = self
         self.manager.startPuzzle()
         
@@ -110,6 +113,11 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     
     func changeSteps() {
         stepsLbl.text = "\(manager.steps)"
+    }
+    
+    func timeFinishMessage() -> String {
+        let (h,m,s) = formatTimer(seconds: self.counter)
+        return String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
     }
 
     

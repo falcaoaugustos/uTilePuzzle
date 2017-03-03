@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */; };
 		B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511101E573A4D00A20AB4 /* IXNTileBoard.m */; };
 		B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */; };
 		B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B595110E1E573A4C00A20AB4 /* uPuzzle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uPuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
 		B595110F1E573A4D00A20AB4 /* IXNTileBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTileBoard.h; sourceTree = "<group>"; };
 		B59511101E573A4D00A20AB4 /* IXNTileBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IXNTileBoard.m; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				B59511211E573AD300A20AB4 /* IXNTilePuzzle */,
 				B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */,
+				A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */,
 				B5DB12F61E4CA48200B7FEFE /* ViewController.swift */,
 				B5DB12F81E4CA48200B7FEFE /* Main.storyboard */,
 				B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */,
@@ -269,6 +272,7 @@
 				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,
 				B59511201E573ACD00A20AB4 /* UIViewFocusEnviroment.m in Sources */,
 				B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */,
+				A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */,
 				B595111F1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m in Sources */,
 				B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */,
 				B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */,

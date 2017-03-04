@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwO-fs-0xp">
-                                <rect key="frame" x="954" y="190" width="700" height="78"/>
+                                <rect key="frame" x="998" y="290" width="700" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="skF-CZ-9Yq"/>
                                     <constraint firstAttribute="width" constant="700" id="w6T-Q9-gGG"/>
@@ -33,14 +33,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6t4-dR-nF0">
-                                <rect key="frame" x="174" y="190" width="700" height="700"/>
+                                <rect key="frame" x="222" y="290" width="700" height="700"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="700" id="GKu-OC-Haf"/>
                                     <constraint firstAttribute="height" constant="700" id="yVC-Y1-VyJ"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="kIU-DJ-8Ah">
-                                <rect key="frame" x="954" y="328" width="700" height="562"/>
+                                <rect key="frame" x="998" y="428" width="700" height="562"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="700" id="5nP-cs-xHX"/>
@@ -66,14 +66,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title03" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-tN-zdh">
+                                <rect key="frame" x="555" y="90" width="810" height="100"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6t4-dR-nF0" firstAttribute="top" secondItem="e7V-Pe-ZNF" secondAttribute="bottom" constant="190" id="Aub-37-It3"/>
-                            <constraint firstItem="BwO-fs-0xp" firstAttribute="top" secondItem="6t4-dR-nF0" secondAttribute="top" id="NA2-cQ-gy2"/>
+                            <constraint firstItem="6t4-dR-nF0" firstAttribute="top" secondItem="TKI-tN-zdh" secondAttribute="bottom" constant="100" id="8XR-ha-1oo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TKI-tN-zdh" secondAttribute="trailing" constant="535" id="9hl-Wy-oDq"/>
+                            <constraint firstItem="TKI-tN-zdh" firstAttribute="top" secondItem="e7V-Pe-ZNF" secondAttribute="bottom" constant="90" id="CUe-Lc-ezM"/>
                             <constraint firstItem="kIU-DJ-8Ah" firstAttribute="top" secondItem="BwO-fs-0xp" secondAttribute="bottom" constant="60" id="NGS-Ea-jgl"/>
-                            <constraint firstItem="kIU-DJ-8Ah" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="80" id="Q9e-7Z-kdl"/>
-                            <constraint firstItem="6t4-dR-nF0" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="154" id="Vz8-D4-sto"/>
-                            <constraint firstItem="BwO-fs-0xp" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="80" id="fcb-5g-JDB"/>
+                            <constraint firstItem="kIU-DJ-8Ah" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="76" id="Q9e-7Z-kdl"/>
+                            <constraint firstItem="6t4-dR-nF0" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="202" id="Vz8-D4-sto"/>
+                            <constraint firstItem="BwO-fs-0xp" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="76" id="fcb-5g-JDB"/>
+                            <constraint firstItem="5Je-RN-EhW" firstAttribute="top" secondItem="6t4-dR-nF0" secondAttribute="bottom" constant="90" id="gzN-3z-Fxb"/>
+                            <constraint firstItem="TKI-tN-zdh" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="535" id="qdl-Co-b2H"/>
+                            <constraint firstItem="BwO-fs-0xp" firstAttribute="top" secondItem="TKI-tN-zdh" secondAttribute="bottom" constant="100" id="tTY-4h-iIl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -279,5 +286,6 @@
     <resources>
         <image name="Menu" width="92" height="92"/>
         <image name="PlayPause" width="92" height="92"/>
+        <image name="title03" width="1959" height="242"/>
     </resources>
 </document>

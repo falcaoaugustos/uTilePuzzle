@@ -12,6 +12,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tablePuzzle: UITableView!
     @IBOutlet weak var puzzleImage: UIImageView!
+    @IBOutlet weak var levelSelector: UISegmentedControl!
     //@IBOutlet weak var titlePuzzle: UILabel!
     
     
@@ -28,6 +29,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.puzzleImage.layer.borderWidth = 14.0
         
         self.view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
+        
+        self.levelSelector.setTitleTextAttributes(
+            [NSForegroundColorAttributeName : UIColor.white], for: UIControlState.selected)
+        self.levelSelector.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)], for: UIControlState.normal)
         
         //self.puzzleImage.layer.shadowColor = UIColor.black.cgColor
         //self.puzzleImage.layer.shadowOpacity = 1
@@ -46,6 +51,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let image = UIImage(named: self.gameImageName!)
             nextViewController.image = image
             nextViewController.imageName = self.gameImageName!
+            nextViewController.levelPuzzle = self.levelSelector.selectedSegmentIndex + 3
         }
     }
     

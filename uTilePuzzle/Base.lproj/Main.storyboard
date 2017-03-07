@@ -40,11 +40,11 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="kIU-DJ-8Ah">
-                                <rect key="frame" x="998" y="428" width="700" height="562"/>
+                                <rect key="frame" x="998" y="428" width="700" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="700" id="5nP-cs-xHX"/>
-                                    <constraint firstAttribute="height" constant="562" id="xV0-rw-hhO"/>
+                                    <constraint firstAttribute="height" constant="427" id="xV0-rw-hhO"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="P0P-MD-H5D" style="IBUITableViewCellStyleDefault" id="1ay-Rf-jvr">
@@ -69,6 +69,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title03" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-tN-zdh">
                                 <rect key="frame" x="555" y="90" width="810" height="100"/>
                             </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0RB-R9-7lo">
+                                <rect key="frame" x="998" y="921" width="700" height="70"/>
+                                <color key="backgroundColor" red="0.20178434252738953" green="0.25251880288124084" blue="0.36870348453521729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="700" id="3Ep-xt-jJM"/>
+                                    <constraint firstAttribute="height" constant="69" id="gxz-8h-ujv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Easy 3x3"/>
+                                    <segment title="Medium 4x4"/>
+                                    <segment title="Hard 5x5"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="6t4-dR-nF0" firstAttribute="top" secondItem="TKI-tN-zdh" secondAttribute="bottom" constant="100" id="8XR-ha-1oo"/>
@@ -76,7 +89,9 @@
                             <constraint firstItem="TKI-tN-zdh" firstAttribute="top" secondItem="e7V-Pe-ZNF" secondAttribute="bottom" constant="90" id="CUe-Lc-ezM"/>
                             <constraint firstItem="kIU-DJ-8Ah" firstAttribute="top" secondItem="BwO-fs-0xp" secondAttribute="bottom" constant="60" id="NGS-Ea-jgl"/>
                             <constraint firstItem="kIU-DJ-8Ah" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="76" id="Q9e-7Z-kdl"/>
+                            <constraint firstItem="0RB-R9-7lo" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="76" id="R3z-xq-wB4"/>
                             <constraint firstItem="6t4-dR-nF0" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="202" id="Vz8-D4-sto"/>
+                            <constraint firstItem="0RB-R9-7lo" firstAttribute="top" secondItem="kIU-DJ-8Ah" secondAttribute="bottom" constant="66" id="Zdo-6k-oG7"/>
                             <constraint firstItem="BwO-fs-0xp" firstAttribute="leading" secondItem="6t4-dR-nF0" secondAttribute="trailing" constant="76" id="fcb-5g-JDB"/>
                             <constraint firstItem="5Je-RN-EhW" firstAttribute="top" secondItem="6t4-dR-nF0" secondAttribute="bottom" constant="90" id="gzN-3z-Fxb"/>
                             <constraint firstItem="TKI-tN-zdh" firstAttribute="leading" secondItem="Mbt-6F-CAo" secondAttribute="leadingMargin" constant="535" id="qdl-Co-b2H"/>
@@ -84,6 +99,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="levelSelector" destination="0RB-R9-7lo" id="NI4-hZ-VHO"/>
                         <outlet property="puzzleImage" destination="6t4-dR-nF0" id="iXM-CK-gFs"/>
                         <outlet property="tablePuzzle" destination="kIU-DJ-8Ah" id="FeA-QR-iGL"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segue" id="gHX-PC-3dt"/>

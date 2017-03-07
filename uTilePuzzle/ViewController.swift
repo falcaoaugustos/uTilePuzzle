@@ -20,8 +20,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     @IBOutlet weak var clueImage: UIImageView!
     @IBOutlet weak var puzzleName: UILabel!
     
-
-   //-------------------------------------------
+    var levelPuzzle: Int = 0
     var imageName: String?// = "pug"
     var image: UIImage?// = UIImage(named: "pug")
     
@@ -39,7 +38,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         self.view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
         
         self.manager.delegate = self
-        self.manager.startPuzzle()
+        self.manager.startPuzzle(size: self.levelPuzzle)
         
         self.clueImage.image = self.image
         self.puzzleName.text = self.imageName
@@ -68,13 +67,13 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     }
     
     func tapRestartHandler(_ gestureRecognizer: UITapGestureRecognizer) {
-        self.manager.startPuzzle()
+        self.manager.startPuzzle(size: self.levelPuzzle)
         self.stopTimer()
         self.startTimer()
     }
     
     @IBAction func restartPuzzle(_ sender: Any) {
-        self.manager.startPuzzle()
+        self.manager.startPuzzle(size: self.levelPuzzle)
         
         //zera o timer
         self.stopTimer()

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IXNTileBoard *board;
 @property (strong, nonatomic) NSMutableArray *tiles;
 
+@property (nonatomic) NSUInteger boardSize;
 
 @property (strong, nonatomic) UIImageViewFocusEnviroment *draggedTile;
 @property (nonatomic) NSInteger draggedDirection;
@@ -55,6 +56,7 @@
 {
     // make the board model
     self.board = [[IXNTileBoard alloc] initWithSize:size];
+    self.boardSize = size;
     
     // slice the images
     UIImage *resizedImage = [image resizedImageWithSize:self.frame.size];
@@ -236,7 +238,7 @@
         
         CGPoint targetTile = [self mappingTapTileFromDirection: press];
 
-        if (targetTile.x > 3.5 || targetTile.y > 3.5 || targetTile.x < 1 || targetTile.y < 1)
+        if (targetTile.x > self.boardSize || targetTile.y > self.boardSize || targetTile.x < 1 || targetTile.y < 1)
             continue;
         
         if (![self.board canMoveTile: targetTile]) return;
@@ -266,7 +268,7 @@
     
     CGPoint targetPoint = [self mappingSwipeTileFromSwipeDirection:swipeRecognizer.direction];
     
-    if (targetPoint.x > 3.5 || targetPoint.x < 1 || targetPoint.y > 3.5 || targetPoint.y < 1)
+    if (targetPoint.x > self.boardSize || targetPoint.x < 1 || targetPoint.y > self.boardSize || targetPoint.y < 1)
         return;
     
     if (![self.board canMoveTile: targetPoint]) return;

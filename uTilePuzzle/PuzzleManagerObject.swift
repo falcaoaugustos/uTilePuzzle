@@ -24,7 +24,7 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
     var parentViewController: ViewController!
     
     //let boardImage: UIImage! = UIImage(named: "pug.jpg")
-    let boardSize = 3
+    var boardSize = 3
     
     let AnimationSpeed: TimeInterval! = 0.05
     
@@ -44,10 +44,12 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
         boardImage = image
     }
     
-    func startPuzzle() {
+    func startPuzzle(size: Int) {
+        
+        self.boardSize = size
         
         hideImage()
-        gameView.play(with: boardImage, size: boardSize)
+        gameView.play(with: boardImage, size: size)
         gameView.shuffleTimes(100)
         steps = 0
     }
@@ -106,7 +108,7 @@ class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
         }))
         
         alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { (handler) in
-            self.startPuzzle()
+            self.startPuzzle(size: self.boardSize)
             self.parentViewController.stopTimer()
             self.parentViewController.startTimer()
         }))

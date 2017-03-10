@@ -16,7 +16,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     //@IBOutlet weak var titlePuzzle: UILabel!
     
     
-    var puzzles:[String] = ["Pug","Nature","Carnival"]
+    var puzzles:[String] = ["Airplane","Autumn","Bridge","Carnival","Dog","Flowers","Nature","Peacock","Valley","Winter"]
     var gameImageName: String?
     
     override func viewDidLoad() {

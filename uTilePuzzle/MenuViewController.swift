@@ -65,6 +65,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         //cell.backgroundColor = UIColor(red: 51.0/255.0, green: 63.0/255.0, blue: 95.0/255.0, alpha: 0.8)
         
         
+        cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = self.puzzles[indexPath.row]
         //cell.textLabel?.textColor = UIColor.white

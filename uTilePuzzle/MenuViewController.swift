@@ -8,13 +8,11 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tablePuzzle: UITableView!
     @IBOutlet weak var puzzleImage: UIImageView!
-    @IBOutlet weak var levelSelector: UISegmentedControl!
-    //@IBOutlet weak var titlePuzzle: UILabel!
-    
+    @IBOutlet weak var levelSelector: UISegmentedControl!    
     
     var puzzles:[String] = ["Airplane","Autumn","Bridge","Carnival","Dog","Flowers","Nature","Peacock","Valley","Winter"]
     var gameImageName: String?
@@ -55,6 +53,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // pragma mark - TableView Delegate
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.puzzles.count
     }
@@ -64,13 +64,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell:UITableViewCell = self.tablePuzzle.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         //cell.backgroundColor = UIColor(red: 51.0/255.0, green: 63.0/255.0, blue: 95.0/255.0, alpha: 0.8)
         
-        
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = self.puzzles[indexPath.row]
         //cell.textLabel?.textColor = UIColor.white
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -83,6 +81,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.gameImageName = self.puzzles[indexPath.row]
         performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    // pragma mark - UIFocusEnviroment Delegate
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [self.tablePuzzle]
     }
     
 }

@@ -6,4 +6,4 @@ Do you like uTilePuzzle? Great! We could actually really use your help! Feel fre
 
 License
 
-uTilePuzzle is released under an MIT license.
+uTilePuzzle is released under an MIT license. See LICENSE.md file for more information.

@@ -13,6 +13,7 @@
 		B5893C601F7218FD00365768 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C571F7218FC00365768 /* UIImage+Resize.m */; };
 		B5893C611F7218FD00365768 /* IXNTileBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C5A1F7218FC00365768 /* IXNTileBoard.m */; };
 		B5893C621F7218FD00365768 /* IXNTileBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */; };
+		B5893C6D1F721F1B00365768 /* UTPTileBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */; };
 		B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */; };
 		B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */; };
 		B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 		B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXNTileBoardView.m; path = IXNTilePuzzle/IXNTileBoardView.m; sourceTree = "<group>"; };
 		B5893C5C1F7218FD00365768 /* UIViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewFocusEnviroment.h; path = IXNTilePuzzle/UIViewFocusEnviroment.h; sourceTree = "<group>"; };
 		B5893C5D1F7218FD00365768 /* uTilePuzzle-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uTilePuzzle-Bridging-Header.h"; path = "IXNTilePuzzle/uTilePuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTPTileBoard.swift; sourceTree = "<group>"; };
 		B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleManagerObject.swift; sourceTree = "<group>"; };
 		B5DB12F11E4CA48200B7FEFE /* uTilePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTilePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5893C6B1F721F0800365768 /* UTPTilePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */,
+			);
+			path = UTPTilePuzzle;
+			sourceTree = "<group>";
+		};
 		B59511211E573AD300A20AB4 /* IXNTilePuzzle */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		B5DB12F31E4CA48200B7FEFE /* uTilePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				B5893C6B1F721F0800365768 /* UTPTilePuzzle */,
 				B59511211E573AD300A20AB4 /* IXNTilePuzzle */,
 				B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */,
 				A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */,
@@ -276,6 +287,7 @@
 				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,
 				B5893C5F1F7218FD00365768 /* UIImageViewFocusEnviroment.m in Sources */,
 				B5893C621F7218FD00365768 /* IXNTileBoardView.m in Sources */,
+				B5893C6D1F721F1B00365768 /* UTPTileBoard.swift in Sources */,
 				A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */,
 				B5893C5E1F7218FD00365768 /* UIViewFocusEnviroment.m in Sources */,
 				B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */,

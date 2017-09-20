@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */; };
-		B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511101E573A4D00A20AB4 /* IXNTileBoard.m */; };
-		B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */; };
+		B5893C5E1F7218FD00365768 /* UIViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */; };
+		B5893C5F1F7218FD00365768 /* UIImageViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C561F7218FC00365768 /* UIImageViewFocusEnviroment.m */; };
+		B5893C601F7218FD00365768 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C571F7218FC00365768 /* UIImage+Resize.m */; };
+		B5893C611F7218FD00365768 /* IXNTileBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C5A1F7218FC00365768 /* IXNTileBoard.m */; };
+		B5893C621F7218FD00365768 /* IXNTileBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */; };
 		B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */; };
-		B595111A1E573A4D00A20AB4 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B59511161E573A4D00A20AB4 /* UIImage+Resize.m */; };
-		B595111F1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */; };
-		B59511201E573ACD00A20AB4 /* UIViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */; };
 		B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */; };
 		B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* ViewController.swift */; };
 		B5DB12FA1E4CA48200B7FEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12F81E4CA48200B7FEFE /* Main.storyboard */; };
@@ -50,19 +50,19 @@
 
 /* Begin PBXFileReference section */
 		A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		B595110E1E573A4C00A20AB4 /* uTilePuzzle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uTilePuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
-		B595110F1E573A4D00A20AB4 /* IXNTileBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTileBoard.h; sourceTree = "<group>"; };
-		B59511101E573A4D00A20AB4 /* IXNTileBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IXNTileBoard.m; sourceTree = "<group>"; };
-		B59511111E573A4D00A20AB4 /* IXNTileBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTileBoardView.h; sourceTree = "<group>"; };
-		B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IXNTileBoardView.m; sourceTree = "<group>"; };
-		B59511131E573A4D00A20AB4 /* IXNTilePuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXNTilePuzzle.h; sourceTree = "<group>"; };
+		B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewFocusEnviroment.m; path = IXNTilePuzzle/UIViewFocusEnviroment.m; sourceTree = "<group>"; };
+		B5893C531F7218FB00365768 /* IXNTileBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXNTileBoard.h; path = IXNTilePuzzle/IXNTileBoard.h; sourceTree = "<group>"; };
+		B5893C541F7218FB00365768 /* UIImageViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageViewFocusEnviroment.h; path = IXNTilePuzzle/UIImageViewFocusEnviroment.h; sourceTree = "<group>"; };
+		B5893C551F7218FC00365768 /* IXNTileBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXNTileBoardView.h; path = IXNTilePuzzle/IXNTileBoardView.h; sourceTree = "<group>"; };
+		B5893C561F7218FC00365768 /* UIImageViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageViewFocusEnviroment.m; path = IXNTilePuzzle/UIImageViewFocusEnviroment.m; sourceTree = "<group>"; };
+		B5893C571F7218FC00365768 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "IXNTilePuzzle/UIImage+Resize.m"; sourceTree = "<group>"; };
+		B5893C581F7218FC00365768 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "IXNTilePuzzle/UIImage+Resize.h"; sourceTree = "<group>"; };
+		B5893C591F7218FC00365768 /* IXNTilePuzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXNTilePuzzle.h; path = IXNTilePuzzle/IXNTilePuzzle.h; sourceTree = "<group>"; };
+		B5893C5A1F7218FC00365768 /* IXNTileBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXNTileBoard.m; path = IXNTilePuzzle/IXNTileBoard.m; sourceTree = "<group>"; };
+		B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXNTileBoardView.m; path = IXNTilePuzzle/IXNTileBoardView.m; sourceTree = "<group>"; };
+		B5893C5C1F7218FD00365768 /* UIViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewFocusEnviroment.h; path = IXNTilePuzzle/UIViewFocusEnviroment.h; sourceTree = "<group>"; };
+		B5893C5D1F7218FD00365768 /* uTilePuzzle-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uTilePuzzle-Bridging-Header.h"; path = "IXNTilePuzzle/uTilePuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
 		B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleManagerObject.swift; sourceTree = "<group>"; };
-		B59511151E573A4D00A20AB4 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		B59511161E573A4D00A20AB4 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		B595111B1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewFocusEnviroment.h; sourceTree = "<group>"; };
-		B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageViewFocusEnviroment.m; sourceTree = "<group>"; };
-		B595111D1E573ACD00A20AB4 /* UIViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewFocusEnviroment.h; sourceTree = "<group>"; };
-		B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewFocusEnviroment.m; sourceTree = "<group>"; };
 		B5DB12F11E4CA48200B7FEFE /* uTilePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTilePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5DB12F61E4CA48200B7FEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,18 +98,18 @@
 		B59511211E573AD300A20AB4 /* IXNTilePuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				B595110E1E573A4C00A20AB4 /* uTilePuzzle-Bridging-Header.h */,
-				B595110F1E573A4D00A20AB4 /* IXNTileBoard.h */,
-				B59511101E573A4D00A20AB4 /* IXNTileBoard.m */,
-				B59511111E573A4D00A20AB4 /* IXNTileBoardView.h */,
-				B59511121E573A4D00A20AB4 /* IXNTileBoardView.m */,
-				B59511131E573A4D00A20AB4 /* IXNTilePuzzle.h */,
-				B595111B1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.h */,
-				B595111C1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m */,
-				B595111D1E573ACD00A20AB4 /* UIViewFocusEnviroment.h */,
-				B595111E1E573ACD00A20AB4 /* UIViewFocusEnviroment.m */,
-				B59511151E573A4D00A20AB4 /* UIImage+Resize.h */,
-				B59511161E573A4D00A20AB4 /* UIImage+Resize.m */,
+				B5893C531F7218FB00365768 /* IXNTileBoard.h */,
+				B5893C5A1F7218FC00365768 /* IXNTileBoard.m */,
+				B5893C551F7218FC00365768 /* IXNTileBoardView.h */,
+				B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */,
+				B5893C591F7218FC00365768 /* IXNTilePuzzle.h */,
+				B5893C581F7218FC00365768 /* UIImage+Resize.h */,
+				B5893C571F7218FC00365768 /* UIImage+Resize.m */,
+				B5893C541F7218FB00365768 /* UIImageViewFocusEnviroment.h */,
+				B5893C561F7218FC00365768 /* UIImageViewFocusEnviroment.m */,
+				B5893C5C1F7218FD00365768 /* UIViewFocusEnviroment.h */,
+				B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */,
+				B5893C5D1F7218FD00365768 /* uTilePuzzle-Bridging-Header.h */,
 			);
 			name = IXNTilePuzzle;
 			sourceTree = "<group>";
@@ -274,13 +274,13 @@
 			files = (
 				B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */,
 				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,
-				B59511201E573ACD00A20AB4 /* UIViewFocusEnviroment.m in Sources */,
-				B59511181E573A4D00A20AB4 /* IXNTileBoardView.m in Sources */,
+				B5893C5F1F7218FD00365768 /* UIImageViewFocusEnviroment.m in Sources */,
+				B5893C621F7218FD00365768 /* IXNTileBoardView.m in Sources */,
 				A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */,
-				B595111F1E573ACD00A20AB4 /* UIImageViewFocusEnviroment.m in Sources */,
+				B5893C5E1F7218FD00365768 /* UIViewFocusEnviroment.m in Sources */,
 				B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */,
-				B59511171E573A4D00A20AB4 /* IXNTileBoard.m in Sources */,
-				B595111A1E573A4D00A20AB4 /* UIImage+Resize.m in Sources */,
+				B5893C611F7218FD00365768 /* IXNTileBoard.m in Sources */,
+				B5893C601F7218FD00365768 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

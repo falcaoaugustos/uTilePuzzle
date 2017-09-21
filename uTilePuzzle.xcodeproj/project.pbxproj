@@ -62,8 +62,8 @@
 		B5893C5A1F7218FC00365768 /* IXNTileBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXNTileBoard.m; path = IXNTilePuzzle/IXNTileBoard.m; sourceTree = "<group>"; };
 		B5893C5B1F7218FC00365768 /* IXNTileBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXNTileBoardView.m; path = IXNTilePuzzle/IXNTileBoardView.m; sourceTree = "<group>"; };
 		B5893C5C1F7218FD00365768 /* UIViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewFocusEnviroment.h; path = IXNTilePuzzle/UIViewFocusEnviroment.h; sourceTree = "<group>"; };
-		B5893C5D1F7218FD00365768 /* uTilePuzzle-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uTilePuzzle-Bridging-Header.h"; path = "IXNTilePuzzle/uTilePuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTPTileBoard.swift; sourceTree = "<group>"; };
+		B5893C6E1F735D6C00365768 /* uTilePuzzle-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uTilePuzzle-Bridging-Header.h"; path = "IXNTilePuzzle/uTilePuzzle-Bridging-Header.h"; sourceTree = "<group>"; };
 		B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleManagerObject.swift; sourceTree = "<group>"; };
 		B5DB12F11E4CA48200B7FEFE /* uTilePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTilePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 		B59511211E573AD300A20AB4 /* IXNTilePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				B5893C6E1F735D6C00365768 /* uTilePuzzle-Bridging-Header.h */,
 				B5893C531F7218FB00365768 /* IXNTileBoard.h */,
 				B5893C5A1F7218FC00365768 /* IXNTileBoard.m */,
 				B5893C551F7218FC00365768 /* IXNTileBoardView.h */,
@@ -119,7 +120,6 @@
 				B5893C561F7218FC00365768 /* UIImageViewFocusEnviroment.m */,
 				B5893C5C1F7218FD00365768 /* UIViewFocusEnviroment.h */,
 				B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */,
-				B5893C5D1F7218FD00365768 /* uTilePuzzle-Bridging-Header.h */,
 			);
 			name = IXNTilePuzzle;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.falcaoaugustos.uTilePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "uTilePuzzle/uTilePuzzle-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "uTilePuzzle/IXNTilePuzzle/uTilePuzzle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
@@ -448,7 +448,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.falcaoaugustos.uTilePuzzle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "uTilePuzzle/uTilePuzzle-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "uTilePuzzle/IXNTilePuzzle/uTilePuzzle-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};

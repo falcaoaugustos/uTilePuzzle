@@ -54,7 +54,7 @@ class UIImageViewFocusEnviroment: UIImageView {
             coordinator.addCoordinatedAnimations({
                 self.transform = CGAffineTransform.identity
                 self.layer.shadowOpacity = 0.0
-                self.layer.shadowOffset = CGSize(width: 0.0, height: 15.0)
+                // self.layer.shadowOffset = CGSize(width: 0.0, height: 15.0)
                 self.backgroundColor?.withAlphaComponent(0.5)
                 self.removeMotionEffect(self.motionEffectGroup())
             }, completion: nil)

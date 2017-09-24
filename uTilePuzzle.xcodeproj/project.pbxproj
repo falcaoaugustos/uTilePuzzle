@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A7F47FA11E68FFC2004988F6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */; };
+		B54C24F31F783FE0002EA4C8 /* UIImageViewFocusEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C24F21F783FE0002EA4C8 /* UIImageViewFocusEnviroment.swift */; };
 		B5893C5E1F7218FD00365768 /* UIViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */; };
 		B5893C5F1F7218FD00365768 /* UIImageViewFocusEnviroment.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C561F7218FC00365768 /* UIImageViewFocusEnviroment.m */; };
 		B5893C601F7218FD00365768 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B5893C571F7218FC00365768 /* UIImage+Resize.m */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B54C24F21F783FE0002EA4C8 /* UIImageViewFocusEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewFocusEnviroment.swift; sourceTree = "<group>"; };
 		B5893C521F7218FB00365768 /* UIViewFocusEnviroment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewFocusEnviroment.m; path = IXNTilePuzzle/UIViewFocusEnviroment.m; sourceTree = "<group>"; };
 		B5893C531F7218FB00365768 /* IXNTileBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXNTileBoard.h; path = IXNTilePuzzle/IXNTileBoard.h; sourceTree = "<group>"; };
 		B5893C541F7218FB00365768 /* UIImageViewFocusEnviroment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageViewFocusEnviroment.h; path = IXNTilePuzzle/UIImageViewFocusEnviroment.h; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */,
 				B5893C8F1F74AF3300365768 /* UTPTileBoardView.swift */,
 				B5893C911F74CA4300365768 /* UIImageResize.swift */,
+				B54C24F21F783FE0002EA4C8 /* UIImageViewFocusEnviroment.swift */,
 			);
 			path = UTPTilePuzzle;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */,
+				B54C24F31F783FE0002EA4C8 /* UIImageViewFocusEnviroment.swift in Sources */,
 				B5893C921F74CA4300365768 /* UIImageResize.swift in Sources */,
 				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,
 				B5893C5F1F7218FD00365768 /* UIImageViewFocusEnviroment.m in Sources */,

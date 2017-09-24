@@ -31,14 +31,6 @@ class UIImageViewFocusEnviroment: UIImageView {
         return motionEffectGroup
     }
 
-    override func becomeFirstResponder() -> Bool {
-        return true
-    }
-
-    override var canBecomeFocused: Bool {
-        return true
-    }
-
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if context.nextFocusedItem === self {
             coordinator.addCoordinatedAnimations({
@@ -59,5 +51,13 @@ class UIImageViewFocusEnviroment: UIImageView {
                 self.removeMotionEffect(self.motionEffectGroup())
             }, completion: nil)
         }
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+
+    override var canBecomeFocused: Bool {
+        return true
     }
 }

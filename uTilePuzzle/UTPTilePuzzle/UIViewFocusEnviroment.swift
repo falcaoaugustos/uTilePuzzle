@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 class UIViewFocusEnviroment: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,3 +59,4 @@ class UIViewFocusEnviroment: UIView {
         return false
     }
 }
+ */

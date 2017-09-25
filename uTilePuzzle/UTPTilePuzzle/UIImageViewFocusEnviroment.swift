@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 class UIImageViewFocusEnviroment: UIImageView {
 
     override func awakeFromNib() {
@@ -61,3 +62,4 @@ class UIImageViewFocusEnviroment: UIImageView {
         return true
     }
 }
+*/

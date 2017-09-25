@@ -24,7 +24,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     var imageName: String?// = "pug"
     var image: UIImage?// = UIImage(named: "pug")
     
-    @IBOutlet weak var gameView2: IXNTileBoardView!
+    @IBOutlet var gameView2: IXNTileBoardView! // UTPTileBoardView!
         
     @IBOutlet weak var stepsLbl: UILabel!
     
@@ -83,7 +83,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         
     }
     
-    // pragma mark - Timer functions
+    // MARK: Timer functions
     
     //essa função é cahmada quando o timer gera um evento
     
@@ -108,7 +108,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
     }
     
-    // pragma mark - Puzzle Manager Delegate Method
+    // MARK: Puzzle Manager Delegate Method
     
     func changeSteps() {
         stepsLbl.text = "\(manager.steps)"

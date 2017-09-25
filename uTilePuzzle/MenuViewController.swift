@@ -53,7 +53,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // pragma mark - TableView Delegate
+    // MARK: TableView Delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.puzzles.count
@@ -83,7 +83,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: "segue", sender: self)
     }
     
-    // pragma mark - UIFocusEnviroment Delegate
+    // MARK: UIFocusEnviroment Delegate
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return [self.tablePuzzle]

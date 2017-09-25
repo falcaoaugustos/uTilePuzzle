@@ -8,8 +8,9 @@
 
 import Foundation
 
+/*
 extension UIImage {
-    func resizedImageWithSize(size: CGSize) -> UIImage {
+    func resizedImage(with size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let sourceImage = self.cgImage?.copy()
         var newImage = UIImage(cgImage: sourceImage!, scale: 0.0, orientation: self.imageOrientation)
@@ -43,3 +44,4 @@ extension UIImage {
         return newImage
     }
 }
+*/

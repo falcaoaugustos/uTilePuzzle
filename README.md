@@ -1,10 +1,6 @@
-<h1 align="center">
-  <img src="media/screenshot00.jpg" alt="uTilePuzzle Logo"><br><br>
-</h1>
+![PREVIEW_00](media/screenshot00.jpg)
 
 <p align="center">My first published tvOS App. uTilePuzzle is a sliding tile puzzle to tvOS.</p>
-
----
 
 ## Developers
 * Augusto Falcão | @falcaoaugustos
@@ -13,6 +9,7 @@
 
 ## Preview
 ![PREVIEW_01](media/screenshot01.jpg)
+
 ![PREVIEW_02](media/screenshot02.jpg)
 
 ## Showcased Skills

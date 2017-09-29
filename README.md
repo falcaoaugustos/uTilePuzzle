@@ -28,4 +28,4 @@
 
 ## License
 
-* uTilePuzzle is released under an MIT license. See LICENSE.md file for more information.
+* uTilePuzzle is released under an MIT license. See LICENSE file for more information.

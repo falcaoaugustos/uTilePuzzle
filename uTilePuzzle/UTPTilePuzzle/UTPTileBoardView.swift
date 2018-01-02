@@ -24,7 +24,8 @@ class UTPTileBoardView: UIViewFocusEnviroment {
 
     var isGestureRecognized: Bool = false
 
-    var board = UTPTileBoard()
+    // var board = UTPTileBoard()
+    var board = IXNTileBoard()
     var tiles: [UIImageViewFocusEnviroment] = []
     var boardSize: Int = 3
 
@@ -51,13 +52,14 @@ class UTPTileBoardView: UIViewFocusEnviroment {
     }
 
     func play(with image: UIImage, size: Int) {
-        board = UTPTileBoard(withSize: size)!
+        // board = UTPTileBoard(withSize: size)!
+        board = IXNTileBoard(size: size)
         boardSize = size
 
         let resizedImage = image.resizedImage(with: frame.size)
-        // tileWidth = (resizedImage.size.width) / CGFloat(size)
-        // tileHeight = (resizedImage.size.height) / CGFloat(size)
-        // tiles = sliceImageToAnArray(resizedImage)
+        tileWidth = (resizedImage!.size.width) / CGFloat(size)
+        tileHeight = (resizedImage!.size.height) / CGFloat(size)
+        tiles = sliceImageToAnArray(resizedImage!)
 
         if !isGestureRecognized {
             addGestures()
@@ -67,20 +69,27 @@ class UTPTileBoardView: UIViewFocusEnviroment {
     func sliceImageToAnArray(_ image: UIImage) -> [UIImageViewFocusEnviroment] {
         var slices: [UIImageViewFocusEnviroment] = []
 
-        for i in 0 ..< board!.size {
-            for j in 0 ..< board!.size {
-                if i == board!.size && j == board!.size {
+//        for i in 0 ..< board!.size {
+//            for j in 0 ..< board!.size {
+//                if i == board!.size && j == board!.size {
+        for i in 0 ..< board.size {
+            for j in 0 ..< board.size {
+                if i == board.size && j == board.size {
                     continue
                 }
-                let f: CGRect = CGRect(x: CGFloat(i) * tileWidth, y: CGFloat(j) * tileHeight, width: tileWidth, height: tileHeight)
+                let f: CGRect = CGRect(x: CGFloat(j) * tileWidth, y: CGFloat(i) * tileHeight, width: tileWidth, height: tileHeight)
                 let tileImageView: UIImageViewFocusEnviroment = tileImageViewWithImage(image: image, frame: f)
                 slices.append(tileImageView)
 
                 let pieceCoord: CGPoint = coordinateFromPoint(point: f.origin)
 
-                if board!.tileAtCoordinate(coor: pieceCoord) == 100 {
+                if board.tile(atCoordinate: pieceCoord) == 0 {
                     zeroCoordinate = pieceCoord
                 }
+
+//                if board!.tileAtCoordinate(coor: pieceCoord) == 100 {
+//                    zeroCoordinate = pieceCoord
+//                }
             }
         }
         return slices
@@ -109,22 +118,23 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         addGestureRecognizer(swipeGestureUp)
 
         let swipeGestureDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
-        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.down
+        swipeGestureDown.direction = UISwipeGestureRecognizerDirection.down
         addGestureRecognizer(swipeGestureDown)
 
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
-        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.left
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.left
         addGestureRecognizer(swipeGestureLeft)
 
         let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler))
-        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.right
+        swipeGestureRight.direction = UISwipeGestureRecognizerDirection.right
         addGestureRecognizer(swipeGestureRight)
     }
 
     // MARK: Public Methods for playing puzzle
 
     func shuffleTimes(_ times: Int) {
-        board!.shuffle(times: times)
+//        board!.shuffle(times: times)
+        board.shuffle(times)
         drawTiles()
     }
 
@@ -149,14 +159,19 @@ class UTPTileBoardView: UIViewFocusEnviroment {
     }
 
     func traverseTilesWithBlock(_ block: (_ tileImageView: UIImageViewFocusEnviroment, _ i: Int, _ j: Int) -> Void) {
-        for i in 1 ... board!.size {
-            for j in 1 ... board!.size {
-                let value = board!.tileAtCoordinate(coor: CGPoint(x: i, y: j))
-                if value == 100 {
+//        for i in 1 ... board!.size {
+//            for j in 1 ... board!.size {
+        for i in 1 ... board.size {
+            for j in 1 ... board.size {
+//                let value = board!.tileAtCoordinate(coor: CGPoint(x: i, y: j))
+                let value = board.tile(atCoordinate: CGPoint(x: i, y: j))
+                if value == 0 {
                     zeroCoordinate = CGPoint(x: i, y: j)
                     continue
                 }
-                let tileImageView: UIImageViewFocusEnviroment = tiles[value! - 1]
+
+//                let tileImageView: UIImageViewFocusEnviroment = tiles[value - 1]
+                let tileImageView: UIImageViewFocusEnviroment = tiles[value!.intValue - 1]
                 block(tileImageView, i, j)
             }
         }
@@ -180,7 +195,8 @@ class UTPTileBoardView: UIViewFocusEnviroment {
     func tileWasMoved() {
         orderingTiles()
 
-        if board!.isAllTilesCorrect() && delegate != nil {
+//        if board!.isAllTilesCorrect() && delegate != nil {
+        if board.isAllTilesCorrect() && delegate != nil {
             delegate?.tileBoardViewDidFinished(self)
         }
     }
@@ -198,7 +214,7 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         case .upArrow:
             pressedTargetTile.y = zeroCoordinate.y + 1
         case .downArrow:
-            pressedTargetTile.y = zeroCoordinate.y + 1
+            pressedTargetTile.y = zeroCoordinate.y - 1
         case .leftArrow:
             pressedTargetTile.x = zeroCoordinate.x + 1
         case .rightArrow:
@@ -237,11 +253,13 @@ class UTPTileBoardView: UIViewFocusEnviroment {
                 continue
             }
 
-            if !board!.canMoveTile(coor: targetTile) {
+//            if !board!.canMoveTile(coor: targetTile) {
+            if !board.canMoveTile(targetTile) {
                 return
             }
 
-            let p: CGPoint = board!.shouldMove(true, tileAtCoordinate: targetTile)
+//            let p: CGPoint = board!.shouldMove(true, tileAtCoordinate: targetTile)
+            let p: CGPoint = board.shouldMove(true, tileAtCoordinate: targetTile)
             let tilePosition: CGPoint = CGPoint(x: tileWidth * (targetTile.x - 1), y: tileHeight * (targetTile.y - 1))
             let tileView: UIImageViewFocusEnviroment = tileViewAtPosition(position: tilePosition)
             let newFrame = CGRect(x: tileWidth * (p.x - 1), y: tileHeight * (p.y - 1), width: tileWidth, height: tileHeight)
@@ -270,11 +288,13 @@ class UTPTileBoardView: UIViewFocusEnviroment {
             return
         }
 
-        if !board!.canMoveTile(coor: targetPoint) {
+//        if !board!.canMoveTile(coor: targetPoint) {
+        if !board.canMoveTile(targetPoint) {
             return
         }
 
-        let p: CGPoint = board!.shouldMove(true, tileAtCoordinate: targetPoint)
+//        let p: CGPoint = board!.shouldMove(true, tileAtCoordinate: targetPoint)
+        let p: CGPoint = board.shouldMove(true, tileAtCoordinate: targetPoint)
         let tilePosition: CGPoint = CGPoint(x: tileWidth * (targetPoint.x - 1), y: tileHeight * (targetPoint.y - 1))
         let tileView: UIImageViewFocusEnviroment = tileViewAtPosition(position: tilePosition)
         let newFrame = CGRect(x: tileWidth * (p.x - 1), y: tileHeight * (p.y - 1), width: tileWidth, height: tileHeight)

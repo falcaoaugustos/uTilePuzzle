@@ -24,8 +24,9 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     var imageName: String?// = "pug"
     var image: UIImage?// = UIImage(named: "pug")
     
-    @IBOutlet var gameView2: IXNTileBoardView! // UTPTileBoardView!
-        
+//    @IBOutlet var gameView2: IXNTileBoardView!
+    @IBOutlet var gameView2: UTPTileBoardView!
+
     @IBOutlet weak var stepsLbl: UILabel!
     
     lazy var manager: PuzzleManagerObject = { PuzzleManagerObject(parent: self, tileBoardView: self.gameView2, image:self.image!) }()

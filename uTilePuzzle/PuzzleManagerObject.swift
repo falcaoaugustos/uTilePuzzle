@@ -13,11 +13,13 @@ protocol PuzzleManagerProtocol {
     func timeFinishMessage() -> String
 }
 
-class PuzzleManagerObject: NSObject, /* UTPTileBoardViewDelegate */ IXNTileBoardViewDelegate {
+//class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
+class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
 
     var delegate: PuzzleManagerProtocol? = nil
     
-    var gameView: IXNTileBoardView! // UTPTileBoardView
+//    var gameView: IXNTileBoardView!
+    var gameView: UTPTileBoardView!
     var clueView: UIImageView!
     var boardImage: UIImage!
     
@@ -36,7 +38,8 @@ class PuzzleManagerObject: NSObject, /* UTPTileBoardViewDelegate */ IXNTileBoard
         }
     }
     
-    init(parent: ViewController, tileBoardView: IXNTileBoardView /*UTPTileBoardView*/, image: UIImage) {
+//    init(parent: ViewController, tileBoardView: IXNTileBoardView, image: UIImage) {
+    init(parent: ViewController, tileBoardView: UTPTileBoardView, image: UIImage) {
         super.init()
         parentViewController = parent
         gameView = tileBoardView
@@ -113,13 +116,14 @@ class PuzzleManagerObject: NSObject, /* UTPTileBoardViewDelegate */ IXNTileBoard
     
     // MARK: Tile Board Delegate Method
     
-    func tileBoardView(_ tileBoardView: IXNTileBoardView! /*UTPTileBoardView!*/, tileDidMove position: CGPoint) {
+//    func tileBoardView(_ tileBoardView: IXNTileBoardView!, tileDidMove position: CGPoint) {
+    func tileBoardView(_ tileBoardView: UTPTileBoardView, tileDidMove position: CGPoint) {
         steps = steps + 1
     }
     
-    func tileBoardViewDidFinished(_ tileBoardView: IXNTileBoardView! /*UTPTileBoardView!*/) {
+//    func tileBoardViewDidFinished(_ tileBoardView: IXNTileBoardView!) {
+    func tileBoardViewDidFinished(_ tileBoardView: UTPTileBoardView) {
         showImage()
         finishMessage()
     }
-    
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-/*
 extension UIImage {
     func resizedImage(with size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -20,16 +19,12 @@ extension UIImage {
         return newImage
     }
 
-    func kGetScale() -> CGFloat {
-        return 1.0
-    }
-
-    func cropImageFromFrame(frame: CGRect) -> UIImage {
+    func cropImage(fromFrame frame: CGRect) -> UIImage {
         let destFrame = CGRect(x: 0.0, y: 0.0, width: frame.size.width, height: frame.size.height)
 
         var scale: CGFloat = 1.0
 
-        if UIScreen.main.responds(to: #selector(kGetScale)) {
+        if UIScreen.main.responds(to: #selector(getter: self.scale)) {
             scale = UIScreen.main.scale
         }
 
@@ -44,4 +39,3 @@ extension UIImage {
         return newImage
     }
 }
-*/

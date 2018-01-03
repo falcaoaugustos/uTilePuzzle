@@ -20,7 +20,7 @@ class UTPTileBoard {
     }
 
     init?(withSize size: Int) {
-        if !isSizeValid(size: size) {
+        if isSizeValid(size: size) == false {
             return nil
         }
         self.size = size
@@ -117,8 +117,11 @@ class UTPTileBoard {
         }
 
         if move {
-            let number = tileAtCoordinate(coor: coor)!
-            setTileAtCoordinate(coor: coor, number: tileAtCoordinate(coor: neighbor)!)
+            guard let number = tileAtCoordinate(coor: coor),
+            let neighborNumber = tileAtCoordinate(coor: neighbor)
+                else { return CGPoint.zero }
+
+            setTileAtCoordinate(coor: coor, number: neighborNumber)
             setTileAtCoordinate(coor: neighbor, number: number)
         }
 

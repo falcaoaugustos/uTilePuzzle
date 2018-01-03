@@ -9,22 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController, PuzzleManagerProtocol {
-   
-    // counter
+
     @IBOutlet weak var timerLabel: UILabel!
     
     var timer = Timer()
     var counter = 0
-    
-    //images
+
     @IBOutlet weak var clueImage: UIImageView!
     @IBOutlet weak var puzzleName: UILabel!
     
     var levelPuzzle: Int = 0
-    var imageName: String?// = "pug"
-    var image: UIImage?// = UIImage(named: "pug")
+    var imageName: String?
+    var image: UIImage?
     
-//    @IBOutlet var gameView2: IXNTileBoardView!
     @IBOutlet var gameView2: UTPTileBoardView!
 
     @IBOutlet weak var stepsLbl: UILabel!
@@ -33,26 +30,21 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //self.gameView.tou
+
+        view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
         
-        self.view.backgroundColor = UIColor.init(patternImage: UIImage(named: "back-1")!)
+        manager.delegate = self
+        manager.startPuzzle(size: levelPuzzle)
         
-        self.manager.delegate = self
-        self.manager.startPuzzle(size: self.levelPuzzle)
+        clueImage.image = image
+        puzzleName.text = imageName
         
-        self.clueImage.image = self.image
-        self.puzzleName.text = self.imageName
+        addGestures()
         
-        self.addGestures()
-        
-        //ajustando timer
-        let (h,m,s) = formatTimer(seconds: self.counter)
-        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
-        //--------------
-        //iniciando timer
-        self.startTimer()
-        //-------------
+        let (hour, minute, second) = formatTimer(seconds: counter)
+        timerLabel.text = String(format: "%02d", hour) + ":" + String(format: "%02d", minute) + ":" + String(format: "%02d", second)
+
+        startTimer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,49 +56,43 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
         
         let tapRestart = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapRestartHandler(_:)))
         tapRestart.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
-        self.view.addGestureRecognizer(tapRestart)
+        view.addGestureRecognizer(tapRestart)
     }
     
     func tapRestartHandler(_ gestureRecognizer: UITapGestureRecognizer) {
-        self.manager.startPuzzle(size: self.levelPuzzle)
-        self.stopTimer()
-        self.startTimer()
+        manager.startPuzzle(size: self.levelPuzzle)
+        stopTimer()
+        startTimer()
     }
     
     @IBAction func restartPuzzle(_ sender: Any) {
-        self.manager.startPuzzle(size: self.levelPuzzle)
+        manager.startPuzzle(size: self.levelPuzzle)
         
-        //zera o timer
-        self.stopTimer()
-        //inicia o timer novamente
-        self.startTimer()
-        //-------------------------
-        
+        stopTimer()
+        startTimer()
     }
     
     // MARK: Timer functions
     
-    //essa função é cahmada quando o timer gera um evento
-    
-    
     func updateCounter() {
-        self.counter = self.counter+1
-        let (h,m,s) = formatTimer(seconds: self.counter)
-        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
+        counter = counter + 1
+        let (hour, minute, second) = formatTimer(seconds: counter)
+        self.timerLabel.text = String(format: "%02d", hour) + ":" + String(format: "%02d", minute) + ":" + String(format: "%02d", second)
     }
-    //formata a label em hh:mm:ss
+
     func formatTimer(seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-    func startTimer(){
+
+    func startTimer() {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(ViewController.updateCounter), userInfo: nil, repeats: true)
     }
     func stopTimer(){
-        self.timer.invalidate()
-        self.counter = 0
-        let (h,m,s) = formatTimer(seconds: self.counter)
-        self.timerLabel.text = String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
+        timer.invalidate()
+        counter = 0
+        let (hour, minute, second) = formatTimer(seconds: counter)
+        timerLabel.text = String(format: "%02d", hour) + ":" + String(format: "%02d", minute) + ":" + String(format: "%02d", second)
     }
     
     // MARK: Puzzle Manager Delegate Method
@@ -116,10 +102,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     }
     
     func timeFinishMessage() -> String {
-        let (h,m,s) = formatTimer(seconds: self.counter)
-        return String(format: "%02d", h) + ":" + String(format: "%02d", m) + ":" + String(format: "%02d", s)
+        let (hour, minute, second) = formatTimer(seconds: counter)
+        return String(format: "%02d", hour) + ":" + String(format: "%02d", minute) + ":" + String(format: "%02d", second)
     }
-
-    
 }
-

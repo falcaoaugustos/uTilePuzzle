@@ -13,19 +13,16 @@ protocol PuzzleManagerProtocol {
     func timeFinishMessage() -> String
 }
 
-//class PuzzleManagerObject: NSObject, IXNTileBoardViewDelegate {
 class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
 
     var delegate: PuzzleManagerProtocol? = nil
     
-//    var gameView: IXNTileBoardView!
     var gameView: UTPTileBoardView!
     var clueView: UIImageView!
     var boardImage: UIImage!
     
     var parentViewController: ViewController!
     
-    //let boardImage: UIImage! = UIImage(named: "pug.jpg")
     var boardSize = 3
     
     let AnimationSpeed: TimeInterval! = 0.05
@@ -38,7 +35,6 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
         }
     }
     
-//    init(parent: ViewController, tileBoardView: IXNTileBoardView, image: UIImage) {
     init(parent: ViewController, tileBoardView: UTPTileBoardView, image: UIImage) {
         super.init()
         parentViewController = parent
@@ -48,7 +44,7 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
     }
     
     func startPuzzle(size: Int) {
-        self.boardSize = size
+        boardSize = size
         
         hideImage()
         gameView.play(with: boardImage, size: size)
@@ -88,15 +84,17 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
         }
             
         UIView.animate(withDuration: AnimationSpeed, animations: {
-                self.clueView.alpha = 0.0
-                self.gameView.alpha = 1.0
-                self.clueView.removeFromSuperview()
-                self.clueView = nil
-            })
+            self.clueView.alpha = 0.0
+            self.gameView.alpha = 1.0
+            self.clueView.removeFromSuperview()
+            self.clueView = nil
+        })
     }
     
     func finishMessage() {
-        let timeMessage: String = (self.delegate?.timeFinishMessage())!
+        guard let delegate = delegate else { return }
+
+        let timeMessage: String = delegate.timeFinishMessage()
         
         let message = "You've completed a \(boardSize) x \(boardSize) puzzle with \(steps) steps and in \(timeMessage). Press restart button to play again."
         let alert = UIAlertController(title: "Congratulations!", message: message, preferredStyle: .actionSheet) // study best style
@@ -116,12 +114,10 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
     
     // MARK: Tile Board Delegate Method
     
-//    func tileBoardView(_ tileBoardView: IXNTileBoardView!, tileDidMove position: CGPoint) {
     func tileBoardView(_ tileBoardView: UTPTileBoardView, tileDidMove position: CGPoint) {
         steps = steps + 1
     }
     
-//    func tileBoardViewDidFinished(_ tileBoardView: IXNTileBoardView!) {
     func tileBoardViewDidFinished(_ tileBoardView: UTPTileBoardView) {
         showImage()
         finishMessage()

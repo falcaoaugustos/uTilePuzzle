@@ -55,9 +55,9 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         boardSize = size
 
         let resizedImage = image.resizedImage(with: frame.size)
-        tileWidth = (resizedImage!.size.width) / CGFloat(size)
-        tileHeight = (resizedImage!.size.height) / CGFloat(size)
-        tiles = sliceImageToAnArray(resizedImage!)
+        tileWidth = (resizedImage.size.width) / CGFloat(size)
+        tileHeight = (resizedImage.size.height) / CGFloat(size)
+        tiles = sliceImageToAnArray(resizedImage)
 
         if !isGestureRecognized {
             addGestures()

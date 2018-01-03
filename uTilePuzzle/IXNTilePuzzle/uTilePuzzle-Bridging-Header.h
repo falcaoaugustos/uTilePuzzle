@@ -3,4 +3,4 @@
 //
 
 #import "IXNTilePuzzle.h"
-#import "UIImage+Resize.h"
+// #import "UIImage+Resize.h"

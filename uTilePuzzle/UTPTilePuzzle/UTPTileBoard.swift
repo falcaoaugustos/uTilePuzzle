@@ -31,7 +31,7 @@ class UTPTileBoard {
     }
 
     func isCoordinateInBound(coor: CGPoint) -> Bool {
-        return coor.x > 0 && coor.x <= CGFloat(size) && coor.y > 0 && coor.y <= CGFloat(size)
+        return coor.x > 0 && Int(coor.x) <= size && coor.y > 0 && Int(coor.y) <= size
     }
 
     func tileValuesForSize(size: Int) -> [[Int]] {
@@ -40,21 +40,22 @@ class UTPTileBoard {
         for _ in 0 ..< size {
             var values: [Int] = []
             for _ in 0 ..< size {
-                if value != Int(pow(Double(size), 2)) {
+                if value != size * size {
                     values.append(value)
                     value += 1
                 } else {
-                    values.append(100)
+                    values.append(0)
                 }
             }
             tiles.append(values)
         }
+
         return tiles
     }
 
     func setTileAtCoordinate(coor: CGPoint, number: Int) {
         if (isCoordinateInBound(coor: coor)) {
-            tiles[Int(coor.y - 1)][Int(coor.x - 1)] = number
+            tiles[Int(coor.y) - 1][Int(coor.x) - 1] = number
         }
     }
 
@@ -71,36 +72,30 @@ class UTPTileBoard {
     func canMoveTile(coor: CGPoint) -> Bool {
         var validValues: [Int] = []
 
-        let downValue = tileAtCoordinate(coor: CGPoint(x: coor.x, y: coor.y - 1))
-        if downValue != nil {
-            validValues.append(downValue!)
+        if let downValue = tileAtCoordinate(coor: CGPoint(x: coor.x, y: coor.y - 1)) {
+            validValues.append(downValue)
         }
-        let rightValue = tileAtCoordinate(coor: CGPoint(x: coor.x + 1, y: coor.y))
-        if rightValue != nil {
-            validValues.append(rightValue!)
+        if let rightValue = tileAtCoordinate(coor: CGPoint(x: coor.x + 1, y: coor.y)) {
+            validValues.append(rightValue)
         }
-        let upValue = tileAtCoordinate(coor: CGPoint(x: coor.x, y: coor.y + 1))
-        if upValue != nil {
-            validValues.append(upValue!)
+        if let upValue = tileAtCoordinate(coor: CGPoint(x: coor.x, y: coor.y + 1)) {
+            validValues.append(upValue)
         }
-        let leftValue = tileAtCoordinate(coor: CGPoint(x: coor.x - 1, y: coor.y))
-        if leftValue != nil {
-            validValues.append(leftValue!)
+        if let leftValue = tileAtCoordinate(coor: CGPoint(x: coor.x - 1, y: coor.y)) {
+            validValues.append(leftValue)
         }
-
-        print(validValues)
 
         var canMove: Bool = false
 
         for value in validValues {
-            canMove = canMove || value == 100
+            canMove = canMove || value == 0
         }
 
         return canMove
     }
 
     func shouldMove(_ move: Bool, tileAtCoordinate coor: CGPoint) -> CGPoint {
-        if canMoveTile(coor: coor) {
+        if canMoveTile(coor: coor) == false {
             return CGPoint.zero
         }
 
@@ -111,20 +106,20 @@ class UTPTileBoard {
 
         var neighbor = CGPoint.zero
 
-        if tileAtCoordinate(coor: lowerNeighbor) == 100 {
+        if tileAtCoordinate(coor: lowerNeighbor) == 0 {
             neighbor = lowerNeighbor
-        } else if tileAtCoordinate(coor: rightNeighbor) == 100 {
+        } else if tileAtCoordinate(coor: rightNeighbor) == 0 {
             neighbor = rightNeighbor
-        } else if tileAtCoordinate(coor: upperNeighbor) == 100 {
+        } else if tileAtCoordinate(coor: upperNeighbor) == 0 {
             neighbor = upperNeighbor
         } else {
             neighbor = leftNeighbor
         }
 
         if move {
-            let number = tileAtCoordinate(coor: coor)
+            let number = tileAtCoordinate(coor: coor)!
             setTileAtCoordinate(coor: coor, number: tileAtCoordinate(coor: neighbor)!)
-            setTileAtCoordinate(coor: neighbor, number: number!)
+            setTileAtCoordinate(coor: neighbor, number: number)
         }
 
         return neighbor
@@ -136,14 +131,14 @@ class UTPTileBoard {
             for j in 1 ... size {
                 for i in 1 ... size {
                     let p: CGPoint = CGPoint(x: i, y: j)
-                    print("i: \(i), j: \(j) e pode: \(canMoveTile(coor: p))")
+
                     if canMoveTile(coor: p) {
                         validMoves.append(p)
                     }
                 }
             }
-         print(validMoves)
             let v: CGPoint = validMoves[Int(arc4random_uniform(UInt32(validMoves.count)))]
+
             shouldMove(true, tileAtCoordinate: v)
         }
     }
@@ -158,12 +153,11 @@ class UTPTileBoard {
                     correct = false
                     break
                 } else {
-                    i = i < Int(pow(Double(size), 2)) ? i + 1 : 0
+                    i = i < size * size - 1 ? i + 1 : 0
                 }
             }
         }
 
         return correct
     }
-
 }

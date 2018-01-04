@@ -38,7 +38,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "segue") {
-            let nextViewController = segue.destination as! ViewController
+            let nextViewController = segue.destination as! GameViewController
             let image = UIImage(named: gameImageName)
             nextViewController.image = image
             nextViewController.imageName = gameImageName

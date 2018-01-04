@@ -15,7 +15,7 @@
 		B5893C921F74CA4300365768 /* UIImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5893C911F74CA4300365768 /* UIImageResize.swift */; };
 		B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */; };
 		B5DB12F51E4CA48200B7FEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */; };
-		B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* ViewController.swift */; };
+		B5DB12F71E4CA48200B7FEFE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB12F61E4CA48200B7FEFE /* GameViewController.swift */; };
 		B5DB12FA1E4CA48200B7FEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12F81E4CA48200B7FEFE /* Main.storyboard */; };
 		B5DB12FC1E4CA48200B7FEFE /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = B5DB12FB1E4CA48200B7FEFE /* Contents.json */; };
 		B5DB130A1E4CA52100B7FEFE /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB13091E4CA52100B7FEFE /* TVServices.framework */; };
@@ -58,7 +58,7 @@
 		B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleManagerObject.swift; sourceTree = "<group>"; };
 		B5DB12F11E4CA48200B7FEFE /* uTilePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uTilePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5DB12F61E4CA48200B7FEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5DB12F61E4CA48200B7FEFE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B5DB12F91E4CA48200B7FEFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5DB12FB1E4CA48200B7FEFE /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Contents.json; path = Assets.xcassets/Contents.json; sourceTree = "<group>"; };
 		B5DB12FD1E4CA48200B7FEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,9 +93,6 @@
 			children = (
 				B5893C6C1F721F1B00365768 /* UTPTileBoard.swift */,
 				B5893C8F1F74AF3300365768 /* UTPTileBoardView.swift */,
-				B5893C911F74CA4300365768 /* UIImageResize.swift */,
-				B54C24F21F783FE0002EA4C8 /* UIImageViewFocusEnvironment.swift */,
-				B54C24F41F784A42002EA4C8 /* UIViewFocusEnvironment.swift */,
 			);
 			path = UTPTilePuzzle;
 			sourceTree = "<group>";
@@ -122,12 +119,11 @@
 		B5DB12F31E4CA48200B7FEFE /* uTilePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				B5E05D2D1FFDC1BC00D54212 /* Main */,
 				B5893C6B1F721F0800365768 /* UTPTilePuzzle */,
+				B5E05D2C1FFDC08900D54212 /* FocusEnvironment */,
+				B5E05D2B1FFDC06A00D54212 /* Extensions */,
 				B5DB12F41E4CA48200B7FEFE /* AppDelegate.swift */,
-				A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */,
-				B5DB12F61E4CA48200B7FEFE /* ViewController.swift */,
-				B5DB12F81E4CA48200B7FEFE /* Main.storyboard */,
-				B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */,
 				B5DB12FB1E4CA48200B7FEFE /* Contents.json */,
 				B5DB12FD1E4CA48200B7FEFE /* Info.plist */,
 				B5F976E31E6A9EDD000F5DF2 /* Assets.xcassets */,
@@ -150,6 +146,34 @@
 				B5DB130E1E4CA52100B7FEFE /* Info.plist */,
 			);
 			path = uTilePuzzleTopShelf;
+			sourceTree = "<group>";
+		};
+		B5E05D2B1FFDC06A00D54212 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5893C911F74CA4300365768 /* UIImageResize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5E05D2C1FFDC08900D54212 /* FocusEnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				B54C24F21F783FE0002EA4C8 /* UIImageViewFocusEnvironment.swift */,
+				B54C24F41F784A42002EA4C8 /* UIViewFocusEnvironment.swift */,
+			);
+			path = FocusEnvironment;
+			sourceTree = "<group>";
+		};
+		B5E05D2D1FFDC1BC00D54212 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB12F81E4CA48200B7FEFE /* Main.storyboard */,
+				A7F47FA01E68FFC2004988F6 /* MenuViewController.swift */,
+				B5DB12F61E4CA48200B7FEFE /* GameViewController.swift */,
+				B59511141E573A4D00A20AB4 /* PuzzleManagerObject.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5DB12F71E4CA48200B7FEFE /* ViewController.swift in Sources */,
+				B5DB12F71E4CA48200B7FEFE /* GameViewController.swift in Sources */,
 				B54C24F31F783FE0002EA4C8 /* UIImageViewFocusEnvironment.swift in Sources */,
 				B5893C921F74CA4300365768 /* UIImageResize.swift in Sources */,
 				B59511191E573A4D00A20AB4 /* PuzzleManagerObject.swift in Sources */,

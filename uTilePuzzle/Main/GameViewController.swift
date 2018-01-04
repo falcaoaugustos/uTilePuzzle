@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameViewController.swift
 //  uPuzzle
 //
 //  Created by Augusto Falcão on 2/9/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, PuzzleManagerProtocol {
+class GameViewController: UIViewController, PuzzleManagerProtocol {
 
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -54,7 +54,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
     
     func addGestures() {
         
-        let tapRestart = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapRestartHandler(_:)))
+        let tapRestart = UITapGestureRecognizer(target: self, action: #selector(GameViewController.tapRestartHandler(_:)))
         tapRestart.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
         view.addGestureRecognizer(tapRestart)
     }
@@ -86,7 +86,7 @@ class ViewController: UIViewController, PuzzleManagerProtocol {
 
     func startTimer() {
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(ViewController.updateCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(GameViewController.updateCounter), userInfo: nil, repeats: true)
     }
     func stopTimer(){
         timer.invalidate()

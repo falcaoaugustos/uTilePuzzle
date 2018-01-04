@@ -21,7 +21,7 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
     var clueView: UIImageView!
     var boardImage: UIImage!
     
-    var parentViewController: ViewController!
+    var parentViewController: GameViewController!
     
     var boardSize = 3
     
@@ -35,7 +35,7 @@ class PuzzleManagerObject: NSObject, UTPTileBoardViewDelegate {
         }
     }
     
-    init(parent: ViewController, tileBoardView: UTPTileBoardView, image: UIImage) {
+    init(parent: GameViewController, tileBoardView: UTPTileBoardView, image: UIImage) {
         super.init()
         parentViewController = parent
         gameView = tileBoardView

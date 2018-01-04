@@ -6,9 +6,8 @@
 //  Copyright © 2017 Augusto Falcão. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-/*
 class UIImageViewFocusEnviroment: UIImageView {
 
     override func awakeFromNib() {
@@ -35,20 +34,12 @@ class UIImageViewFocusEnviroment: UIImageView {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if context.nextFocusedItem === self {
             coordinator.addCoordinatedAnimations({
-                self.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                self.layer.borderWidth = 2.0
-                self.layer.borderColor = UIColor.black.cgColor
-                self.layer.shadowOpacity = 0.2
-                self.layer.shadowOffset = CGSize(width: 0.0, height: 15.0)
-                self.backgroundColor?.withAlphaComponent(1.0)
+                self.transform = CGAffineTransform.identity
                 self.addMotionEffect(self.motionEffectGroup())
             }, completion: nil)
         } else if context.previouslyFocusedItem === self {
             coordinator.addCoordinatedAnimations({
                 self.transform = CGAffineTransform.identity
-                self.layer.shadowOpacity = 0.0
-                // self.layer.shadowOffset = CGSize(width: 0.0, height: 15.0)
-                self.backgroundColor?.withAlphaComponent(0.5)
                 self.removeMotionEffect(self.motionEffectGroup())
             }, completion: nil)
         }
@@ -62,4 +53,3 @@ class UIImageViewFocusEnviroment: UIImageView {
         return true
     }
 }
-*/

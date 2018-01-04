@@ -6,7 +6,7 @@
 //  Copyright © 2017 Augusto Falcão. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class UIViewFocusEnviroment: UIView {
     override func awakeFromNib() {

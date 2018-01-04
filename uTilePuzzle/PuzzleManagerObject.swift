@@ -6,7 +6,7 @@
 //  Copyright © 2017 Augusto Falcão. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PuzzleManagerProtocol {
     func changeSteps()

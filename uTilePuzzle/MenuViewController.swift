@@ -73,7 +73,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: "segue", sender: self)
     }
     
-    // MARK: UIFocusEnviroment Delegate
+    // MARK: UIFocusEnvironment Delegate
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return [self.tablePuzzle]

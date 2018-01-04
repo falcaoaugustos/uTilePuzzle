@@ -13,7 +13,7 @@ import UIKit
     func tileBoardView(_ tileBoardView: UTPTileBoardView, tileDidMove position: CGPoint)
 }
 
-class UTPTileBoardView: UIViewFocusEnviroment {
+class UTPTileBoardView: UIViewFocusEnvironment {
 
     var motionEffectGroupArray = UIMotionEffectGroup()
 
@@ -25,10 +25,10 @@ class UTPTileBoardView: UIViewFocusEnviroment {
     var isGestureRecognized: Bool = false
 
     var board: UTPTileBoard?
-    var tiles: [UIImageViewFocusEnviroment] = []
+    var tiles: [UIImageViewFocusEnvironment] = []
     var boardSize: Int = 3
 
-    var draggedTile = UIImageViewFocusEnviroment()
+    var draggedTile = UIImageViewFocusEnvironment()
     var draggedDirection: Int = 0
 
     var zeroCoordinate = CGPoint.zero
@@ -64,8 +64,8 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         }
     }
 
-    func sliceImageToAnArray(_ image: UIImage) -> [UIImageViewFocusEnviroment] {
-        var slices: [UIImageViewFocusEnviroment] = []
+    func sliceImageToAnArray(_ image: UIImage) -> [UIImageViewFocusEnvironment] {
+        var slices: [UIImageViewFocusEnvironment] = []
 
         guard let board = board else { return [] }
 
@@ -76,7 +76,7 @@ class UTPTileBoardView: UIViewFocusEnviroment {
                 }
 
                 let f: CGRect = CGRect(x: CGFloat(j) * tileWidth, y: CGFloat(i) * tileHeight, width: tileWidth, height: tileHeight)
-                let tileImageView: UIImageViewFocusEnviroment = tileImageViewWithImage(image: image, frame: f)
+                let tileImageView: UIImageViewFocusEnvironment = tileImageViewWithImage(image: image, frame: f)
                 slices.append(tileImageView)
 
                 let pieceCoord: CGPoint = coordinateFromPoint(point: f.origin)
@@ -90,10 +90,10 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         return slices
     }
 
-    func tileImageViewWithImage(image: UIImage, frame: CGRect) -> UIImageViewFocusEnviroment {
+    func tileImageViewWithImage(image: UIImage, frame: CGRect) -> UIImageViewFocusEnvironment {
         let tileImage: UIImage = image.cropImage(fromFrame: frame)
 
-        let tileImageView: UIImageViewFocusEnviroment = UIImageViewFocusEnviroment(image: tileImage)
+        let tileImageView: UIImageViewFocusEnvironment = UIImageViewFocusEnvironment(image: tileImage)
         tileImageView.layer.shadowColor = UIColor.black.cgColor
         tileImageView.layer.shadowOpacity = 0.65
         tileImageView.layer.shadowRadius = 1.5
@@ -153,7 +153,7 @@ class UTPTileBoardView: UIViewFocusEnviroment {
         })
     }
 
-    func traverseTilesWithBlock(_ block: (_ tileImageView: UIImageViewFocusEnviroment, _ i: Int, _ j: Int) -> Void) {
+    func traverseTilesWithBlock(_ block: (_ tileImageView: UIImageViewFocusEnvironment, _ i: Int, _ j: Int) -> Void) {
         guard let board = board else { return }
 
         for i in 1 ... board.size {
@@ -164,7 +164,7 @@ class UTPTileBoardView: UIViewFocusEnviroment {
                     continue
                 }
 
-                let tileImageView: UIImageViewFocusEnviroment = tiles[value - 1]
+                let tileImageView: UIImageViewFocusEnvironment = tiles[value - 1]
                 block(tileImageView, i, j)
             }
         }
@@ -172,8 +172,8 @@ class UTPTileBoardView: UIViewFocusEnviroment {
 
     // MARK: Movers Methods
 
-    func tileViewAtPosition(position: CGPoint) -> UIImageViewFocusEnviroment {
-        var tileView: UIImageViewFocusEnviroment = UIImageViewFocusEnviroment()
+    func tileViewAtPosition(position: CGPoint) -> UIImageViewFocusEnvironment {
+        var tileView: UIImageViewFocusEnvironment = UIImageViewFocusEnvironment()
 
         for enumTile in tiles {
             if enumTile.frame.contains(position) {
@@ -256,7 +256,7 @@ class UTPTileBoardView: UIViewFocusEnviroment {
 
         let p: CGPoint = board.shouldMove(true, tileAtCoordinate: targetTile)
         let tilePosition: CGPoint = CGPoint(x: tileWidth * (targetTile.x - 1), y: tileHeight * (targetTile.y - 1))
-        let tileView: UIImageViewFocusEnviroment = tileViewAtPosition(position: tilePosition)
+        let tileView: UIImageViewFocusEnvironment = tileViewAtPosition(position: tilePosition)
         let newFrame = CGRect(x: tileWidth * (p.x - 1), y: tileHeight * (p.y - 1), width: tileWidth, height: tileHeight)
 
         UIView.animate(withDuration: 0.1, animations: {

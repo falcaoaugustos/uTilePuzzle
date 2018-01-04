@@ -8,5 +8,6 @@
 
 #import "IXNTileBoard.h"
 #import "IXNTileBoardView.h"
-#import "UIViewFocusEnviroment.h"
+// #import "UIViewFocusEnviroment.h"
 #import "UIImageViewFocusEnviroment.h"
+
